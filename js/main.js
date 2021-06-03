@@ -10,4 +10,5 @@ function getQueryVariable(variable) {
   return false;
 }
 
-alarm(getQueryVariable("id"))
+alert(getQueryVariable("id"))
+//Open https://donveds.github.io/AddToCalendar/add.html?id=1 to test
