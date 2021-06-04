@@ -1,5 +1,4 @@
 function create(){
-  
   let ZoomLink = document.getElementById("ZoomLink").value.split(/\r?\n/);
 
   //Выделил нужные строчки для последующей обработки
@@ -9,12 +8,11 @@ function create(){
   let PasscodeLine = ZoomLink[4];
 
   let TimeAndDateArr = TimeAndDateLine.split(/[ ]+/);
-  let TimeAndDate = ""
+  let TimeAndDate = "";
   //Начинаем преобразовывать строку с временем, сразу убираем первый и последний элемент
-  for(i=1; i<=4; i++) {
-
+  for (i = 1; i <= 4; i++) {
     //Преобразуем односимвольные числа месяца в двусимвольные
-    if(i==1) {
+    if (i == 1) {
       switch (TimeAndDateArr[1]) {
         case "1":
           TimeAndDateArr[1] = "01";
@@ -47,7 +45,7 @@ function create(){
     }
 
     //Преобразуем литеральные названия месяцев в числовые двусимвольные
-    if(i==2) {
+    if (i == 2) {
       switch (TimeAndDateArr[2]) {
         case "янв.":
           TimeAndDateArr[2] = "01";
@@ -89,20 +87,18 @@ function create(){
     }
 
     //сократил год до 2 символов
-    if(i==3) {
+    if (i == 3) {
       TimeAndDateArr[3] = TimeAndDateArr[3].slice(2);
     }
 
     //убрал двоеточие у времени до обеда
-    if (i == 4 & TimeAndDateArr[5] == "AM") {
+    if ((i == 4) & (TimeAndDateArr[5] == "AM")) {
       TimeAndDateArr[4] = TimeAndDateArr[4].replace(/[:]/g, "");
     }
 
     //перевел 12 часовой формат в 24 часовой + убрал двоеточие
-    if (i == 4 & TimeAndDateArr[5] == "PM") {
-      
+    if ((i == 4) & (TimeAndDateArr[5] == "PM")) {
       let time = TimeAndDateArr[4].split(/[:]+/);
-
 
       switch (time[0]) {
         case "01":
@@ -142,13 +138,37 @@ function create(){
           TimeAndDateArr[4] = "00" + time[1];
           break;
       }
-
     }
 
     //получил готовый набор цифр(дата и время) для передачи в URL
-    TimeAndDate += TimeAndDateArr[i]
+    TimeAndDate += TimeAndDateArr[i];
+    console.log(TimeAndDate);
   }
-  console.log(TimeAndDate);
+
+  // получил домен аккаунта зума
+  let Domain = LinkLine.substring(
+    LinkLine.lastIndexOf("://") + 3,
+    LinkLine.lastIndexOf(".zoom")
+  );
+
+  // получил первую часть символов ссылки
+  let FirstHash = LinkLine.substring(
+    LinkLine.lastIndexOf("/j/") + 3,
+    LinkLine.lastIndexOf("?pwd=")
+  );
+
+  // получил вторую часть символов ссылки
+  let SecondHash = LinkLine.substring(LinkLine.lastIndexOf("?pwd=") + 5);
+
+  // получил идентификатор конференции без пробелов 
+  // как-то заработало, но нужно будет сделать более лаконично 
+  let MeetingID = MeetingIDLine.substring(
+    LinkLine.lastIndexOf("конференции:") + 27
+    ).replace(/\s+/g, "");
+
+  let Passcode = PasscodeLine.split(/[ ]+/)[2];
+
+  window.location = "https://donveds.github.io/AddToCalendar/index.html?TAD=0306211320&D=avito&FH=98620948242&SH=VEcvcm5CeXRqVkV1QzdrYlBYOWVPQT09&MID=98620948242&P=433077"
 };
 
 function cancel(){
