@@ -142,7 +142,6 @@ function create(){
 
     //получил готовый набор цифр(дата и время) для передачи в URL
     TimeAndDate += TimeAndDateArr[i];
-    console.log(TimeAndDate);
   }
 
   // получил домен аккаунта зума
@@ -168,7 +167,7 @@ function create(){
 
   let Passcode = PasscodeLine.split(/[ ]+/)[2];
 
-  window.location = "https://donveds.github.io/AddToCalendar/index.html?TAD=0306211320&D=avito&FH=98620948242&SH=VEcvcm5CeXRqVkV1QzdrYlBYOWVPQT09&MID=98620948242&P=433077"
+  window.location = `index.html?TAD=${TimeAndDate}&D=${Domain}&FH=${FirstHash}&SH=${SecondHash}&MID=${MeetingID}&P=${Passcode}`;
 };
 
 function cancel(){
