@@ -11,7 +11,7 @@ function getQueryVariable(variable) {
 }
 
 let TAD = getQueryVariable("TAD");
-let TADElement = document.getElementById("TADElement").innerHTML = `Время: ${TAD}`;
+let TADElement = document.getElementById("TADElement").innerHTML = `Время: ${TAD.substr(0, 2)}.${TAD.substr(2, 2)}.20${TAD.substr(4, 2)} ${TAD.substr(6, 2)}:${TAD.substr(8, 2)} Москва`;
 
 let D = getQueryVariable("D");
 let FH = getQueryVariable("FH");
@@ -19,7 +19,7 @@ let SH = getQueryVariable("SH");
 let LinkElement = document.getElementById("LinkElement").innerHTML = `https://${D}.zoom.us/j/${FH}?pwd=${SH}`;
 
 let MID = getQueryVariable("MID");
-let MIDElement = (document.getElementById("MIDElement").innerHTML = `Идентификатор конференции: ${MID}`);
+let MIDElement = (document.getElementById("MIDElement").innerHTML = `Идентификатор конференции: ${MID.substr(0, 3)} ${MID.substr(3, 4)} ${MID.substr(7, 4)}`);
 
 let P = getQueryVariable("P");
 let PElement = (document.getElementById("PElement").innerHTML = `Код доступа: ${P}`);

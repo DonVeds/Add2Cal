@@ -167,7 +167,10 @@ function create(){
 
   let Passcode = PasscodeLine.split(/[ ]+/)[2];
 
-  window.location = `index.html?TAD=${TimeAndDate}&D=${Domain}&FH=${FirstHash}&SH=${SecondHash}&MID=${MeetingID}&P=${Passcode}`;
+  let Duration = document.getElementById("DurationSelect").value.split(/[ ]+/)[0];
+  console.log(Duration)
+
+  window.location = `index.html?TAD=${TimeAndDate}&D=${Domain}&FH=${FirstHash}&SH=${SecondHash}&MID=${MeetingID}&P=${Passcode}&Dur=${Duration}`;
 };
 
 function cancel(){
