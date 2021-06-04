@@ -10,5 +10,5 @@ function getQueryVariable(variable) {
   return false;
 }
 
-alert(getQueryVariable("id"))
+console.log(getQueryVariable("id"))
 //Open https://donveds.github.io/AddToCalendar/add.html?id=1 to test
