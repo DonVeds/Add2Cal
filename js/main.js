@@ -11,15 +11,21 @@ function getQueryVariable(variable) {
 }
 
 let TAD = getQueryVariable("TAD");
-console.log(getQueryVariable("TAD"));
+let TADElement = document.getElementById("TADElement").innerHTML = TAD;
+
 let D = getQueryVariable("D");
-console.log(getQueryVariable("D"));
+let DElement = (document.getElementById("DElement").innerHTML = D);
+
 let FH = getQueryVariable("FH");
-console.log(getQueryVariable("FH"));
+let FHElement = (document.getElementById("FHElement").innerHTML = FH);
+
 let SH = getQueryVariable("SH");
-console.log(getQueryVariable("SH"));
+let SHElement = (document.getElementById("SHElement").innerHTML = SH);
+
 let MID = getQueryVariable("MID");
-console.log(getQueryVariable("MID"));
+let MIDElement = (document.getElementById("MIDElement").innerHTML = MID);
+
 let P = getQueryVariable("P");
-console.log(getQueryVariable("P"));
+let PElement = (document.getElementById("PElement").innerHTML = P);
+
 //Open https://donveds.github.io/AddToCalendar/index.html?TAD=0306211320&D=avito&FH=98620948242&SH=VEcvcm5CeXRqVkV1QzdrYlBYOWVPQT09&MID=98620948242&P=433077 to test
