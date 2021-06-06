@@ -1,3 +1,5 @@
+// TODO: Оптимизировать переменные связанные с датой и временем 
+
 function getQueryVariable(variable) {
   var query = window.location.search.substring(1);
   var vars = query.split("&");
@@ -27,7 +29,16 @@ let PElement = (document.getElementById("PElement").innerHTML = `Код дост
 //Open https://donveds.github.io/AddToCalendar/index.html?TAD=0306211320&D=avito&FH=98620948242&SH=VEcvcm5CeXRqVkV1QzdrYlBYOWVPQT09&MID=98620948242&P=433077 to test
 
 function AddToGoogleCalendar() {
-  window.location = `https://calendar.google.com/calendar/u/0/r/eventedit?dates=20210603T130000Z/20210603T140000Z&text=Zoom+meeting&location&details=Подключиться+к+конференции+Zoom%0Ahttps://${D}.zoom.us/j/${FH}?pwd%3D${SH}%0AИдентификатор+конференции:+${MID.substr(0, 3)}+${MID.substr(3, 4)}+${MID.substr(7, 4)}%0AКод+доступа:+${P}&sf=true`;
+
+  // Устанавливаем начальное время(Start Time)
+  let ST = `20${TAD.substr(4, 2)}${TAD.substr(2, 2)}${TAD.substr(0, 2)}T${TAD.substr(6, 2)}${TAD.substr(8, 2)}00`;
+
+  // Устанавливаем конечное время(End Time) сходя из параметра Dur из URL
+
+
+
+  // Также нужно установить часовой пояс в ссылку
+  window.location = `https://calendar.google.com/calendar/u/0/r/eventedit?dates=${ST}Z/20210603T140000Z&text=Zoom+meeting&location&details=Подключиться+к+конференции+Zoom%0Ahttps://${D}.zoom.us/j/${FH}?pwd%3D${SH}%0AИдентификатор+конференции:+${MID.substr(0, 3)}+${MID.substr(3, 4)}+${MID.substr(7, 4)}%0AКод+доступа:+${P}&sf=true`;
 };
 
 // https://calendar.google.com/calendar/u/0/r/eventedit?dates=20210603T130000Z/20210603T140000Z&text=Zoom+meeting&location&details=Подключиться+к+конференции+Zoom%0Ahttps://${D}.zoom.us/j/${FH}?pwd%3D${SH}%0AИдентификатор+конференции:+${MID.substr(0, 3)}+${MID.substr(3, 4)}+${MID.substr(7, 4)}%0AКод+доступа:+${P}&sf=true
