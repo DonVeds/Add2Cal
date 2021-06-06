@@ -25,3 +25,15 @@ let P = getQueryVariable("P");
 let PElement = (document.getElementById("PElement").innerHTML = `Код доступа: ${P}`);
 
 //Open https://donveds.github.io/AddToCalendar/index.html?TAD=0306211320&D=avito&FH=98620948242&SH=VEcvcm5CeXRqVkV1QzdrYlBYOWVPQT09&MID=98620948242&P=433077 to test
+
+function AddToGoogleCalendar() {
+  window.location = `https://calendar.google.com/calendar/u/0/r/eventedit?dates=20210603T130000Z/20210603T140000Z&text=Zoom+meeting&location&details=Подключиться+к+конференции+Zoom%0Ahttps://${D}.zoom.us/j/${FH}?pwd%3D${SH}%0AИдентификатор+конференции:+${MID.substr(0, 3)}+${MID.substr(3, 4)}+${MID.substr(7, 4)}%0AКод+доступа:+${P}&sf=true`;
+};
+
+// https://calendar.google.com/calendar/u/0/r/eventedit?dates=20210603T130000Z/20210603T140000Z&text=Zoom+meeting&location&details=Подключиться+к+конференции+Zoom%0Ahttps://${D}.zoom.us/j/${FH}?pwd%3D${SH}%0AИдентификатор+конференции:+${MID.substr(0, 3)}+${MID.substr(3, 4)}+${MID.substr(7, 4)}%0AКод+доступа:+${P}&sf=true
+// https://calendar.google.com/calendar/u/0/r/eventedit?dates=20210603T130000Z/20210603T140000Z&text=Zoom+meeting&location&details=Подключиться+к+конференции+Zoom%0Ahttps://avito.zoom.us/j/98620948242?pwd%3DVEcvcm5CeXRqVkV1QzdrYlBYOWVPQT09%0AИдентификатор+конференции:+986+2094+8242%0AКод+доступа:+433077&sf=true
+// https://calendar.google.com/calendar/u/0/r/eventedit?dates=20210603T130000Z/20210603T140000Z&text=Zoom+meeting&location&details=Подключиться+к+конференции+Zoom%0Ahttps://avito.zoom.us/j/98620948242?pwd%VEcvcm5CeXRqVkV1QzdrYlBYOWVPQT09%0AИдентификатор+конференции:+986+2094+8242%0AКод+доступа:+433077&sf=true
+
+function AddToICal(){
+  document.getElementById("ZoomLink").value = "";
+};

@@ -173,6 +173,3 @@ function create(){
   window.location = `index.html?TAD=${TimeAndDate}&D=${Domain}&FH=${FirstHash}&SH=${SecondHash}&MID=${MeetingID}&P=${Passcode}&Dur=${Duration}`;
 };
 
-function cancel(){
-  document.getElementById("ZoomLink").value = "";
-};

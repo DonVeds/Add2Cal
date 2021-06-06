@@ -44,7 +44,7 @@
       </div>
     </section>
 
-    <div class="columns is-multiline mt-6">
+    <div class="columns is-multiline mt-3">
       <div class="column is-three-fifths is-offset-one-fifth">
         <p id="TADElement"></p>
         <p>Подключиться к конференции Zoom</p>
@@ -53,7 +53,8 @@
         <p id="SHElement"></p>
         <p id="MIDElement"></p>
         <p id="PElement"></p>
-        <button class="button is-large is-fullwidth is-warning mt-3">Добавить в календарь</button>
+        <button onclick="AddToGoogleCalendar()" class="button is-medium is-warning mt-3">Добавить в Google календарь</button>
+        <button onclick="AddToICal()" class="button is-medium is-warning mt-3">Добавить в Apple/Outlook календарь</button>
       </div>
       
     </div>
