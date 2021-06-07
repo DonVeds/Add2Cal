@@ -1,5 +1,3 @@
-// TODO: Оптимизировать переменные связанные с датой и временем 
-
 function getQueryVariable(variable) {
   var query = window.location.search.substring(1);
   var vars = query.split("&");
@@ -79,10 +77,26 @@ function AddToGoogleCalendar() {
   window.location = `https://calendar.google.com/calendar/u/0/r/eventedit?dates=${ST}MSK/${ET}MSK&text=Zoom+meeting&location&details=Подключиться+к+конференции+Zoom%0Ahttps://${D}.zoom.us/j/${FH}?pwd%3D${SH}%0AИдентификатор+конференции:+${MID.substr(0, 3)}+${MID.substr(3, 4)}+${MID.substr(7, 4)}%0AКод+доступа:+${P}&sf=true`;
 };
 
-// https://calendar.google.com/calendar/u/0/r/eventedit?dates=20210603T130000Z/20210603T140000Z&text=Zoom+meeting&location&details=Подключиться+к+конференции+Zoom%0Ahttps://${D}.zoom.us/j/${FH}?pwd%3D${SH}%0AИдентификатор+конференции:+${MID.substr(0, 3)}+${MID.substr(3, 4)}+${MID.substr(7, 4)}%0AКод+доступа:+${P}&sf=true
-// https://calendar.google.com/calendar/u/0/r/eventedit?dates=20210603T130000Z/20210603T140000Z&text=Zoom+meeting&location&details=Подключиться+к+конференции+Zoom%0Ahttps://avito.zoom.us/j/98620948242?pwd%3DVEcvcm5CeXRqVkV1QzdrYlBYOWVPQT09%0AИдентификатор+конференции:+986+2094+8242%0AКод+доступа:+433077&sf=true
-// https://calendar.google.com/calendar/u/0/r/eventedit?dates=20210603T130000Z/20210603T140000Z&text=Zoom+meeting&location&details=Подключиться+к+конференции+Zoom%0Ahttps://avito.zoom.us/j/98620948242?pwd%VEcvcm5CeXRqVkV1QzdrYlBYOWVPQT09%0AИдентификатор+конференции:+986+2094+8242%0AКод+доступа:+433077&sf=true
 
 function AddToICal(){
-  document.getElementById("ZoomLink").value = "";
+
+  CalcEndTime()
+
+  window.location = `data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0AURL:https://${D}.zoom.us/j/${FH}?pwd%3D${SH}%0ADTSTART:ST+'MSK'%0ADTEND:ET+'MSK'%0ASUMMARY:Zoom+meeting%0ADESCRIPTION:Подключиться+к+конференции+Zoom%0Ahttps://${D}.zoom.us/j/${FH}?pwd%3D${SH}%0AИдентификатор+конференции:+${MID.substr(0, 3)}+${MID.substr(3, 4)}+${MID.substr(7, 4)}%0AКод+доступа:+${P}%0ALOCATION:''%0AEND:VEVENT%0AEND:VCALENDAR`
+
+  // window.location = `data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0AURL:https://avito.zoom.us/j/98620948242?pwd%253DVEcvcm5CeXRqVkV1QzdrYlBYOWVPQT09%0ADTSTART:20210603T160000MSK%0ADTEND:20210603T163000MSK%0ASUMMARY:Zoom%20meeting%0ADESCRIPTION:%D0%9F%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B8%D1%82%D1%8C%D1%81%D1%8F%20%D0%BA%20%D0%BA%D0%BE%D0%BD%D1%84%D0%B5%D1%80%D0%B5%D0%BD%D1%86%D0%B8%D0%B8%20Zoom%20https://avito.zoom.us/j/98620948242?pwd%253DVEcvcm5CeXRqVkV1QzdrYlBYOWVPQT09%0A%D0%98%D0%B4%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%82%D0%BE%D1%80%20%D0%BA%D0%BE%D0%BD%D1%84%D0%B5%D1%80%D0%B5%D0%BD%D1%86%D0%B8%D0%B8:%20986+2094+8242%0A%D0%9A%D0%BE%D0%B4+%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%B0:+433077%0ALOCATION:%0AEND:VEVENT%0AEND:VCALENDAR`
+
+  window.location = encodeURI(
+    'data:text/calendar;charset=utf8,' + [
+    'BEGIN:VCALENDAR',
+    'VERSION:2.0',
+    'BEGIN:VEVENT',
+    'URL:' + `https://${D}.zoom.us/j/${FH}?pwd%3D${SH}`,
+    'DTSTART:' + ST+'MSK',
+    'DTEND:' + ET+'MSK',
+    'SUMMARY:' + 'Zoom meeting',
+    'DESCRIPTION:' + `Подключиться к конференции Zoom https://${D}.zoom.us/j/${FH}?pwd%3D${SH} Идентификатор конференции: ${MID.substr(0, 3)} ${MID.substr(3, 4)} ${MID.substr(7, 4)} Код доступа: ${P}`,
+    'LOCATION:' + '',
+    'END:VEVENT',
+    'END:VCALENDAR'].join('\n'))
 };
