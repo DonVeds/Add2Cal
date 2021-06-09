@@ -1,4 +1,6 @@
 function create(){
+  let ZoomTitle = document.getElementById("ZoomTitle").value;
+
   let ZoomLink = document.getElementById("ZoomLink").value.split(/\r?\n/);
 
   //Выделил нужные строчки для последующей обработки
@@ -170,6 +172,6 @@ function create(){
   let Duration = document.getElementById("DurationSelect").value.split(/[ ]+/)[0];
   console.log(Duration)
 
-  window.location = `index.html?TAD=${TimeAndDate}&D=${Domain}&FH=${FirstHash}&SH=${SecondHash}&MID=${MeetingID}&P=${Passcode}&Dur=${Duration}`;
+  window.location = `index.html?T=${ZoomTitle}&TAD=${TimeAndDate}&D=${Domain}&FH=${FirstHash}&SH=${SecondHash}&MID=${MeetingID}&P=${Passcode}&Dur=${Duration}`;
 };
 
