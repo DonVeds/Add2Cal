@@ -175,3 +175,16 @@ function create(){
   window.location = `index.html?T=${ZoomTitle}&TAD=${TimeAndDate}&D=${Domain}&FH=${FirstHash}&SH=${SecondHash}&MID=${MeetingID}&P=${Passcode}&Dur=${Duration}`;
 };
 
+// Проверка на наличе изменений в поле для ссылки 
+// Добавлю автоматический Checkspell для форматирования данных в нужный мне формат при каждом действии
+// Буду показывать сообщение о том что Checkspell проверил вводные данные и отредактировал их 
+// Возможно сделаю этот меседжбокс еще и индикатором ошибки 
+
+let InfoMessageBox = document.getElementById("InfoMessageBox");
+let InfoMessageBoxText = document.getElementById("InfoMessageBoxText");
+
+ZoomLink.oninput = function () {
+  InfoMessageBoxText.innerHTML = "Зафиксированы изменения в Поле Для Ссылки";
+  InfoMessageBox.classList.remove("is-hidden");
+  setTimeout(() => InfoMessageBox.classList.add("is-hidden"), 1000);
+};
