@@ -35,7 +35,7 @@ let PElement = (document.getElementById("PElement").innerHTML = `Код дост
 let Dur = getQueryVariable("Dur");
 
 // Устанавливаем начальное время(Start Time)
-let ST = `${YearURL}${MonthURL}${DateURL}T${HourURL}${MinutesURL}00`;
+let ST = `${HourURL}${MinutesURL}00`;
 
 // Устанавливаем конечное время(End Time) сходя из параметра Dur из URL
 let ET = ""
@@ -43,48 +43,53 @@ let ET = ""
 function CalcEndTime() {
   switch (Dur) {
     case "30":
-      if (parseInt(MinutesURL) < 30) {
-        ET = `${YearURL}${MonthURL}${DateURL}T${HourURL}${parseInt(MinutesURL) + 30}00`
-      } else if(parseInt(MinutesURL) > 30) {
-        ET = `${YearURL}${MonthURL}${DateURL}T${parseInt(HourURL) + 1}${parseInt(MinutesURL) - 30}00`
+      if (MinutesURL < 30) {
+        ET = `${HourURL}${MinutesURL + 30}00`
+      } else if(MinutesURL > 30) {
+        ET = `${HourURL + 1}${MinutesURL - 30}00`
       } else {
-        ET = `${YearURL}${MonthURL}${DateURL}T${parseInt(HourURL) + 1}${parseInt(MinutesURL) - 30}00`
+        ET = `${HourURL + 1}${MinutesURL - 30}00`
       }
       break;
     case "60":
-      ET = `${YearURL}${MonthURL}${DateURL}T${HourURL + 1}${MinutesURL}00`
+      ET = `${HourURL + 1}${MinutesURL}00`
       break;
     case "90":
-      if (parseInt(MinutesURL) < 30) {
-        ET = `${YearURL}${MonthURL}${DateURL}T${parseInt(HourURL) + 1}${parseInt(MinutesURL) + 30}00`
-      } else if(parseInt(MinutesURL) > 30) {
-        ET = `${YearURL}${MonthURL}${DateURL}T${parseInt(HourURL) + 2}${parseInt(MinutesURL) - 30}00`
+      if (MinutesURL < 30) {
+        ET = `${HourURL + 1}${MinutesURL + 30}00`
+      } else if(MinutesURL > 30) {
+        ET = `${HourURL + 2}${MinutesURL - 30}00`
       } else {
-        ET = `${YearURL}${MonthURL}${DateURL}T${parseInt(HourURL) + 2}${parseInt(MinutesURL) - 30}00`
+        ET = `${HourURL + 2}${MinutesURL - 30}00`
       }
       break;
     case "120":
-      ET = `${YearURL}${MonthURL}${DateURL}T${HourURL + 2}${MinutesURL}00`
+      ET = `${HourURL + 2}${MinutesURL}00`
       break;
   }
 }
 
+CalcEndTime();
+
+// Берем название из URL и создаем строку с названием и временем
+let Title = getQueryVariable("T");
+// let TitleURL = Title.replace(" ","+");
+// console.log(TitleURL)
+let TElement = document.getElementById("TElement").innerHTML = `${decodeURI(Title)}; ${HourURL}:${MinutesURL} - ${ET.substr(0, 2)}:${ET.substr(2, 2)}`;
+
 function AddToGoogleCalendar() {
 
-  CalcEndTime()
-
   // Также нужно установить часовой пояс в ссылку
-  window.location = `https://calendar.google.com/calendar/u/0/r/eventedit?dates=${ST}MSK/${ET}MSK&text=Zoom+meeting&location&details=Подключиться+к+конференции+Zoom%0Ahttps://${D}.zoom.us/j/${FH}?pwd%3D${SH}%0AИдентификатор+конференции:+${MID.substr(0, 3)}+${MID.substr(3, 4)}+${MID.substr(7, 4)}%0AКод+доступа:+${P}&sf=true`;
+  window.location = `https://calendar.google.com/calendar/u/0/r/eventedit?dates=${YearURL}${MonthURL}${DateURL}T${ST}MSK/${YearURL}${MonthURL}${DateURL}T${ET}MSK&text=${Title}&location&details=Подключиться+к+конференции+Zoom%0Ahttps://${D}.zoom.us/j/${FH}?pwd%3D${SH}%0AИдентификатор+конференции:+${MID.substr(0, 3)}+${MID.substr(3, 4)}+${MID.substr(7, 4)}%0AКод+доступа:+${P}&sf=true`;
 };
 
 
 function AddToICal(){
 
-  CalcEndTime()
-
-  window.location = `data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0AURL:https://${D}.zoom.us/j/${FH}?pwd%3D${SH}%0ADTSTART:ST+'MSK'%0ADTEND:ET+'MSK'%0ASUMMARY:Zoom+meeting%0ADESCRIPTION:Подключиться+к+конференции+Zoom%0Ahttps://${D}.zoom.us/j/${FH}?pwd%3D${SH}%0AИдентификатор+конференции:+${MID.substr(0, 3)}+${MID.substr(3, 4)}+${MID.substr(7, 4)}%0AКод+доступа:+${P}%0ALOCATION:''%0AEND:VEVENT%0AEND:VCALENDAR`
+  // window.location = `data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0AURL:https://${D}.zoom.us/j/${FH}?pwd%3D${SH}%0ADTSTART:ST+'MSK'%0ADTEND:ET+'MSK'%0ASUMMARY:Zoom+meeting%0ADESCRIPTION:Подключиться+к+конференции+Zoom%0Ahttps://${D}.zoom.us/j/${FH}?pwd%3D${SH}%0AИдентификатор+конференции:+${MID.substr(0, 3)}+${MID.substr(3, 4)}+${MID.substr(7, 4)}%0AКод+доступа:+${P}%0ALOCATION:''%0AEND:VEVENT%0AEND:VCALENDAR`
 
   // window.location = `data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0AURL:https://avito.zoom.us/j/98620948242?pwd%253DVEcvcm5CeXRqVkV1QzdrYlBYOWVPQT09%0ADTSTART:20210603T160000MSK%0ADTEND:20210603T163000MSK%0ASUMMARY:Zoom%20meeting%0ADESCRIPTION:%D0%9F%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B8%D1%82%D1%8C%D1%81%D1%8F%20%D0%BA%20%D0%BA%D0%BE%D0%BD%D1%84%D0%B5%D1%80%D0%B5%D0%BD%D1%86%D0%B8%D0%B8%20Zoom%20https://avito.zoom.us/j/98620948242?pwd%253DVEcvcm5CeXRqVkV1QzdrYlBYOWVPQT09%0A%D0%98%D0%B4%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%82%D0%BE%D1%80%20%D0%BA%D0%BE%D0%BD%D1%84%D0%B5%D1%80%D0%B5%D0%BD%D1%86%D0%B8%D0%B8:%20986+2094+8242%0A%D0%9A%D0%BE%D0%B4+%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%B0:+433077%0ALOCATION:%0AEND:VEVENT%0AEND:VCALENDAR`
+  //                    data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0AURL:https://avito.zoom.us/j/91099365091?pwd%253DNVA1K05rbklkVldyMmx0QmxNNmZ2dz09%0ADTSTART:20210611153000MSK%0ADTEND:2021061117000MSK%0ASUMMARY:Zoom%20meeting%0ADESCRIPTION:%D0%9F%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B8%D1%82%D1%8C%D1%81%D1%8F%20%D0%BA%20%D0%BA%D0%BE%D0%BD%D1%84%D0%B5%D1%80%D0%B5%D0%BD%D1%86%D0%B8%D0%B8%20Zoom%20https://avito.zoom.us/j/91099365091?pwd%253DNVA1K05rbklkVldyMmx0QmxNNmZ2dz09%20%D0%98%D0%B4%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%82%D0%BE%D1%80%20%D0%BA%D0%BE%D0%BD%D1%84%D0%B5%D1%80%D0%B5%D0%BD%D1%86%D0%B8%D0%B8:%20910%209936%205091%20%D0%9A%D0%BE%D0%B4%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%B0:%20743209%0ALOCATION:%0AEND:VEVENT%0AEND:VCALENDAR
 
   window.location = encodeURI(
     'data:text/calendar;charset=utf8,' + [
@@ -92,9 +97,9 @@ function AddToICal(){
     'VERSION:2.0',
     'BEGIN:VEVENT',
     'URL:' + `https://${D}.zoom.us/j/${FH}?pwd%3D${SH}`,
-    'DTSTART:' + ST+'MSK',
-    'DTEND:' + ET+'MSK',
-    'SUMMARY:' + 'Zoom meeting',
+    'DTSTART:' + YearURL + MonthURL + DateURL + "T" + ST + 'MSK',
+    'DTEND:' + YearURL + MonthURL + DateURL + "T" + ET + 'MSK',
+    'SUMMARY:' + decodeURI(Title),
     'DESCRIPTION:' + `Подключиться к конференции Zoom https://${D}.zoom.us/j/${FH}?pwd%3D${SH} Идентификатор конференции: ${MID.substr(0, 3)} ${MID.substr(3, 4)} ${MID.substr(7, 4)} Код доступа: ${P}`,
     'LOCATION:' + '',
     'END:VEVENT',
