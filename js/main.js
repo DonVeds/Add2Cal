@@ -16,8 +16,8 @@ let DateURL = TAD.substr(0, 2);
 let MonthURL = TAD.substr(2, 2);
 let YearURL = "20"+TAD.substr(4, 2);
 
-let HourURL = TAD.substr(6, 2);
-let MinutesURL = TAD.substr(8, 2);
+let HourURL = parseInt(TAD.substr(6, 2));
+let MinutesURL = parseInt(TAD.substr(8, 2));
 
 let TADElement = document.getElementById("TADElement").innerHTML = `Время: ${DateURL}.${MonthURL}.${YearURL} ${HourURL}:${MinutesURL} Москва`;
 
@@ -43,28 +43,28 @@ let ET = ""
 function CalcEndTime() {
   switch (Dur) {
     case "30":
-      if (parseInt(MinutesURL) < 30) {
-        ET = `${YearURL}${MonthURL}${DateURL}T${HourURL}${parseInt(MinutesURL) + 30}00`
-      } else if(parseInt(MinutesURL) > 30) {
-        ET = `${YearURL}${MonthURL}${DateURL}T${parseInt(HourURL) + 1}${parseInt(MinutesURL) - 30}00`
-      } else if(parseInt(MinutesURL) = 30) {
-        ET = `${YearURL}${MonthURL}${DateURL}T${parseInt(HourURL) + 1}${parseInt(MinutesURL) - 30}00`
+      if (MinutesURL < 30) {
+        ET = `${YearURL}${MonthURL}${DateURL}T${HourURL}${MinutesURL + 30}00`
+      } else if(MinutesURL > 30) {
+        ET = `${YearURL}${MonthURL}${DateURL}T${HourURL + 1}${MinutesURL - 30}00`
+      } else if(MinutesURL == 30) {
+        ET = `${YearURL}${MonthURL}${DateURL}T${HourURL + 1}${MinutesURL - 30}00`
       }
       break;
     case "60":
-      ET = `${YearURL}${MonthURL}${DateURL}T${parseInt(HourURL) + 1}${MinutesURL}00`
+      ET = `${YearURL}${MonthURL}${DateURL}T${HourURL + 1}${MinutesURL}00`
       break;
     case "90":
-      if (parseInt(MinutesURL) < 30) {
-        ET = `${YearURL}${MonthURL}${DateURL}T${parseInt(HourURL) + 1}${parseInt(MinutesURL) + 30}00`
-      } else if(parseInt(MinutesURL) > 30) {
-        ET = `${YearURL}${MonthURL}${DateURL}T${parseInt(HourURL) + 2}${parseInt(MinutesURL) - 30}00`
-      } else if(parseInt(MinutesURL) = 30) {
-        ET = `${YearURL}${MonthURL}${DateURL}T${parseInt(HourURL) + 2}${parseInt(MinutesURL) - 30}00`
+      if (MinutesURL < 30) {
+        ET = `${YearURL}${MonthURL}${DateURL}T${HourURL + 1}${MinutesURL + 30}00`
+      } else if(MinutesURL > 30) {
+        ET = `${YearURL}${MonthURL}${DateURL}T${HourURL + 2}${MinutesURL - 30}00`
+      } else if(MinutesURL == 30) {
+        ET = `${YearURL}${MonthURL}${DateURL}T${HourURL + 2}${MinutesURL - 30}00`
       }
       break;
     case "120":
-      ET = `${YearURL}${MonthURL}${DateURL}T${parseInt(HourURL) + 2}${MinutesURL}00`
+      ET = `${YearURL}${MonthURL}${DateURL}T${HourURL + 2}${MinutesURL}00`
       break;
   }
 }
