@@ -43,24 +43,24 @@ let ET = ""
 function CalcEndTime() {
   switch (Dur) {
     case "30":
-      if (MinutesURL < 30) {
-        ET = `${YearURL}${MonthURL}${DateURL}T${HourURL}${MinutesURL + 30}00`
-      } else if(MinutesURL > 30) {
-        ET = `${YearURL}${MonthURL}${DateURL}T${HourURL + 1}${MinutesURL - 30}00`
-      } else if(MinutesURL == 30) {
-        ET = `${YearURL}${MonthURL}${DateURL}T${HourURL + 1}${MinutesURL - 30}00`
+      if (parseInt(MinutesURL) < 30) {
+        ET = `${YearURL}${MonthURL}${DateURL}T${HourURL}${parseInt(MinutesURL) + 30}00`
+      } else if(parseInt(MinutesURL) > 30) {
+        ET = `${YearURL}${MonthURL}${DateURL}T${parseInt(HourURL) + 1}${parseInt(MinutesURL) - 30}00`
+      } else {
+        ET = `${YearURL}${MonthURL}${DateURL}T${parseInt(HourURL) + 1}${parseInt(MinutesURL) - 30}00`
       }
       break;
     case "60":
       ET = `${YearURL}${MonthURL}${DateURL}T${HourURL + 1}${MinutesURL}00`
       break;
     case "90":
-      if (MinutesURL < 30) {
-        ET = `${YearURL}${MonthURL}${DateURL}T${HourURL + 1}${MinutesURL + 30}00`
-      } else if(MinutesURL > 30) {
-        ET = `${YearURL}${MonthURL}${DateURL}T${HourURL + 2}${MinutesURL - 30}00`
-      } else if(MinutesURL == 30) {
-        ET = `${YearURL}${MonthURL}${DateURL}T${HourURL + 2}${MinutesURL - 30}00`
+      if (parseInt(MinutesURL) < 30) {
+        ET = `${YearURL}${MonthURL}${DateURL}T${parseInt(HourURL) + 1}${parseInt(MinutesURL) + 30}00`
+      } else if(parseInt(MinutesURL) > 30) {
+        ET = `${YearURL}${MonthURL}${DateURL}T${parseInt(HourURL) + 2}${parseInt(MinutesURL) - 30}00`
+      } else {
+        ET = `${YearURL}${MonthURL}${DateURL}T${parseInt(HourURL) + 2}${parseInt(MinutesURL) - 30}00`
       }
       break;
     case "120":
