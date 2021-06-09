@@ -47,7 +47,7 @@ function CalcEndTime() {
         ET = `${YearURL}${MonthURL}${DateURL}T${HourURL}${parseInt(MinutesURL) + 30}00`
       } else if(parseInt(MinutesURL) > 30) {
         ET = `${YearURL}${MonthURL}${DateURL}T${parseInt(HourURL) + 1}${parseInt(MinutesURL) - 30}00`
-      } else if(parseInt(MinutesURL) = 30) {
+      } else {
         ET = `${YearURL}${MonthURL}${DateURL}T${parseInt(HourURL) + 1}${parseInt(MinutesURL) - 30}00`
       }
       break;
@@ -59,7 +59,7 @@ function CalcEndTime() {
         ET = `${YearURL}${MonthURL}${DateURL}T${parseInt(HourURL) + 1}${parseInt(MinutesURL) + 30}00`
       } else if(parseInt(MinutesURL) > 30) {
         ET = `${YearURL}${MonthURL}${DateURL}T${parseInt(HourURL) + 2}${parseInt(MinutesURL) - 30}00`
-      } else if(parseInt(MinutesURL) = 30) {
+      } else {
         ET = `${YearURL}${MonthURL}${DateURL}T${parseInt(HourURL) + 2}${parseInt(MinutesURL) - 30}00`
       }
       break;
