@@ -10,7 +10,21 @@ function getQueryVariable(variable) {
   return false;
 }
 
+let Title = getQueryVariable("T");
 let TAD = getQueryVariable("TAD");
+let D = getQueryVariable("D");
+let FH = getQueryVariable("FH");
+let SH = getQueryVariable("SH");
+let MID = getQueryVariable("MID");
+let P = getQueryVariable("P");
+let Dur = getQueryVariable("Dur");
+
+if (Title || TAD || D || FH || SH || MID || P || Dur == false) {
+  document.getElementById("MeetingContainer").classList.add("is-hidden");
+  throw new Error("Not full data in URL");
+} else { 
+  document.getElementById("WarningContainer").classList.add("is-hidden");
+}
 
 let DateURL = TAD.substr(0, 2);
 let MonthURL = TAD.substr(2, 2);
@@ -21,18 +35,12 @@ let MinutesURL = parseInt(TAD.substr(8, 2));
 
 let TADElement = document.getElementById("TADElement").innerHTML = `Время: ${DateURL}.${MonthURL}.${YearURL} ${HourURL}:${MinutesURL} Москва`;
 
-let D = getQueryVariable("D");
-let FH = getQueryVariable("FH");
-let SH = getQueryVariable("SH");
 let LinkElement = document.getElementById("LinkElement").innerHTML = `https://${D}.zoom.us/j/${FH}?pwd=${SH}`;
 
-let MID = getQueryVariable("MID");
 let MIDElement = (document.getElementById("MIDElement").innerHTML = `Идентификатор конференции: ${MID.substr(0, 3)} ${MID.substr(3, 4)} ${MID.substr(7, 4)}`);
 
-let P = getQueryVariable("P");
 let PElement = (document.getElementById("PElement").innerHTML = `Код доступа: ${P}`);
 
-let Dur = getQueryVariable("Dur");
 
 // Устанавливаем начальное время(Start Time)
 let ST = `${HourURL}${MinutesURL}00`;
@@ -71,10 +79,6 @@ function CalcEndTime() {
 
 CalcEndTime();
 
-// Берем название из URL и создаем строку с названием и временем
-let Title = getQueryVariable("T");
-// let TitleURL = Title.replace(" ","+");
-// console.log(TitleURL)
 let TElement = document.getElementById("TElement").innerHTML = `${decodeURI(Title)}; ${HourURL}:${MinutesURL} - ${ET.substr(0, 2)}:${ET.substr(2, 2)}`;
 
 function AddToGoogleCalendar() {
