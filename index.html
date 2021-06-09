@@ -3,9 +3,10 @@
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Конференция</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
@@ -44,20 +45,17 @@
       </div>
     </section>
 
-    <div class="columns is-multiline mt-3">
-      <div class="column is-three-fifths is-offset-one-fifth">
-        <p class="title" id="TElement"></p>
-        <p id="TADElement"></p>
-        <p>Подключиться к конференции Zoom</p>
-        <p id="LinkElement"></p>
-        <p id="FHElement"></p>
-        <p id="SHElement"></p>
-        <p id="MIDElement"></p>
-        <p id="PElement"></p>
-        <button onclick="AddToGoogleCalendar()" class="button is-medium is-warning mt-3">Добавить в Google календарь</button>
-        <button onclick="AddToICal()" class="button is-medium is-warning mt-3">Добавить в Outlook календарь</button>
-      </div>
-      
+    <div class="container my-1 px-1">
+      <p class="has-text-weight-bold is-size-3" id="TElement"></p>
+      <p id="TADElement"></p>
+      <p>Подключиться к конференции Zoom</p>
+      <p id="LinkElement"></p>
+      <p id="FHElement"></p>
+      <p id="SHElement"></p>
+      <p id="MIDElement"></p>
+      <p id="PElement"></p>
+      <button onclick="AddToGoogleCalendar()" class="button is-medium is-warning mt-3">Добавить в Google календарь</button>
+      <button onclick="AddToICal()" class="button is-medium is-warning mt-3">Добавить в Outlook календарь</button>
     </div>
 
 
