@@ -1,4 +1,13 @@
+body {
+  height: 100vh ;
+}
+
 hr {
   margin: 0.5rem 0;
+}
+
+#InfoMessageBox{ 
+  position: fixed;
+  bottom: 0;
 }
 

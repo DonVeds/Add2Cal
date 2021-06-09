@@ -175,3 +175,6 @@ function create(){
   window.location = `index.html?T=${ZoomTitle}&TAD=${TimeAndDate}&D=${Domain}&FH=${FirstHash}&SH=${SecondHash}&MID=${MeetingID}&P=${Passcode}&Dur=${Duration}`;
 };
 
+// input.oninput = function () {
+//   document.getElementById("result").innerHTML = input.value;
+// };

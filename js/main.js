@@ -19,10 +19,10 @@ let MID = getQueryVariable("MID");
 let P = getQueryVariable("P");
 let Dur = getQueryVariable("Dur");
 
-if (Title || TAD || D || FH || SH || MID || P || Dur == false) {
+if (Title == false || TAD == false || D == false || FH == false || SH == false || MID == false || P == false || Dur == false) {
   document.getElementById("MeetingContainer").classList.add("is-hidden");
   throw new Error("Not full data in URL");
-} else { 
+} else {
   document.getElementById("WarningContainer").classList.add("is-hidden");
 }
 
