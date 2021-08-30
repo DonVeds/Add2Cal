@@ -45,8 +45,8 @@
       </div>
     </section>
 
-    <div id="MeetingContainer" class="columns my-1 px-1">
-      <div class="column is-5 is-offset-1">
+    <div id="MeetingContainer" class="columns my-1">
+      <div class="column is-5 is-offset-1 p-0">
         <div class="card">
           <div class="BGandTAD">
             <div class="BGandTAD-text">
@@ -67,15 +67,16 @@
       </div>
 
       <div class="column is-5 right-column">
-        <button class="button is-ghost copyButtonForLink">📄</button>
-
-        <p id="TADElement"></p>
-        <p>Подключиться к конференции Zoom</p>
-        <p id="LinkElement"></p>
-        <p id="FHElement"></p>
-        <p id="SHElement"></p>
-        <p id="MIDElement"></p>
-        <p id="PElement"></p>
+        <button onclick="copyZoomLinkToClipboard()" class="button is-ghost copyButtonForLink">📄</button>
+        <div id="right-column-text">
+          <p id="TADElement"></p>
+          <p>Подключиться к конференции Zoom</p>
+          <p id="LinkElement"></p>
+          <p id="FHElement"></p>
+          <p id="SHElement"></p>
+          <p id="MIDElement"></p>
+          <p id="PElement"></p>
+        </div>
 
       </div>
     </div>

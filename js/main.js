@@ -37,9 +37,9 @@ let TADElement = document.getElementById("TADElement").innerHTML = `Время: 
 
 let LinkElement = document.getElementById("LinkElement").innerHTML = `https://${D}.zoom.us/j/${FH}?pwd=${SH}`;
 
-let MIDElement = (document.getElementById("MIDElement").innerHTML = `Идентификатор конференции: ${MID.substr(0, 3)} ${MID.substr(3, 4)} ${MID.substr(7, 4)}`);
+let MIDElement = document.getElementById("MIDElement").innerHTML = `Идентификатор конференции: ${MID.substr(0, 3)} ${MID.substr(3, 4)} ${MID.substr(7, 4)}`;
 
-let PElement = (document.getElementById("PElement").innerHTML = `Код доступа: ${P}`);
+let PElement = document.getElementById("PElement").innerHTML = `Код доступа: ${P}`;
 
 
 // Устанавливаем начальное время(Start Time)
@@ -111,3 +111,12 @@ function AddToICal(){
     'END:VEVENT',
     'END:VCALENDAR'].join('\n'))
 };
+
+function copyZoomLinkToClipboard(){
+  var text = `Время: ${DateURL}.${MonthURL}.${YearURL} ${HourURL}:${MinutesURL} Москва\nПодключиться к конференции Zoom\nhttps://${D}.zoom.us/j/${FH}?pwd=${SH}\nИдентификатор конференции: ${MID.substr(0, 3)} ${MID.substr(3, 4)} ${MID.substr(7, 4)}\nКод доступа: ${P}`;
+  navigator.clipboard.writeText(text).then(function() {
+    console.log('Async: Copying to clipboard was successful!');
+  }, function(err) {
+    console.error('Async: Could not copy text: ', err);
+  });
+}
