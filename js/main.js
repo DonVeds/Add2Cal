@@ -79,7 +79,9 @@ function CalcEndTime() {
 
 CalcEndTime();
 
-let TElement = document.getElementById("TElement").innerHTML = `${decodeURI(Title)}; ${HourURL}:${MinutesURL} - ${ET.substr(0, 2)}:${ET.substr(2, 2)}`;
+let TElement = document.getElementById("TElement").innerHTML = `${decodeURI(Title)}`;
+let TimeElement = document.getElementById("TimeElement").innerHTML = `${HourURL}:${MinutesURL} - ${ET.substr(0, 2)}:${ET.substr(2, 2)}`;
+let DateElement = document.getElementById("DateElement").innerHTML = `${DateURL}.${MonthURL}.${YearURL}`;
 
 function AddToGoogleCalendar() {
 

@@ -18,7 +18,7 @@
       <div class="hero-body">
         <div class="container has-text-centered">
           <p class="title">
-            //Add to calendar
+            //add2cal
           </p>
           <p class="subtitle">
             Простое приложение для быстрого добавления конференций в календарь
@@ -45,17 +45,39 @@
       </div>
     </section>
 
-    <div id="MeetingContainer" class="container my-1 px-1">
-      <p class="has-text-weight-bold is-size-3" id="TElement"></p>
-      <p id="TADElement"></p>
-      <p>Подключиться к конференции Zoom</p>
-      <p id="LinkElement"></p>
-      <p id="FHElement"></p>
-      <p id="SHElement"></p>
-      <p id="MIDElement"></p>
-      <p id="PElement"></p>
-      <button onclick="AddToGoogleCalendar()" class="button is-medium is-warning mt-3">Добавить в Google календарь</button>
-      <button onclick="AddToICal()" class="button is-medium is-warning mt-3">Добавить в Outlook календарь</button>
+    <div id="MeetingContainer" class="columns my-1 px-1">
+      <div class="column is-5 is-offset-1">
+        <div class="card">
+          <div class="BGandTAD">
+            <div class="BGandTAD-text">
+              <p id="TimeElement" class="has-text-weight-bold is-size-3"></p>
+              <p id="DateElement" class="has-text-weight-bold is-size-5"></p>
+            </div>
+          </div>
+          <div class="card-content">
+            <p class="is-size-3 card-header-title pt-0" id="TElement"></p>
+            <p>Конференция добавится в один из выбранных календарей с автоматическим добавлением названия, времени, ссылки и пр.</p>
+          </div>
+          <footer class="card-footer">
+            <button onclick="AddToGoogleCalendar()" class="button is-medium is-warning card-footer-item mx-1 my-1">Google</button>
+            <button onclick="AddToICal()" class="button is-medium is-warning card-footer-item my-1" disabled>Apple</button>
+            <button onclick="AddToICal()" class="button is-medium is-warning card-footer-item mx-1 my-1">Outlook</button>
+          </footer>
+        </div>
+      </div>
+
+      <div class="column is-5 right-column">
+        <button class="button is-ghost copyButtonForLink">📄</button>
+
+        <p id="TADElement"></p>
+        <p>Подключиться к конференции Zoom</p>
+        <p id="LinkElement"></p>
+        <p id="FHElement"></p>
+        <p id="SHElement"></p>
+        <p id="MIDElement"></p>
+        <p id="PElement"></p>
+
+      </div>
     </div>
 
     <div id="WarningContainer" class="container my-1 px-1">
