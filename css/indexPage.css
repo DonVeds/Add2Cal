@@ -2,17 +2,62 @@
   display: flex;
   width: 100%;
   overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.boxesScroll::-webkit-scrollbar {
+  display: none;
 }
 
 .box {
-  height: 300px;
+  height: 400px;
   width: 300px;
-  border: 1px solid black;
   flex-shrink: 0;
   margin-right: 20px;
+  margin-top: 20px;
+  border-radius: 30px;
+  color: white;
+  font-size: 32px;
+  text-align: center;
+}
+
+.box p {
+  margin: 10px 0;
+}
+
+.boxActive {
+  margin-top: 0;
+}
+
+.boxCreate {
+  background: rgb(138, 62, 70);
+  background: linear-gradient(0deg, rgba(138, 62, 70, 1) 0%, rgba(199, 70, 62, 1) 100%);
+}
+
+.boxEvent {
+  background: rgb(199, 46, 45);
+  background: linear-gradient(0deg, rgba(199, 46, 45, 1) 0%, rgba(214, 121, 77, 1) 100%);
+}
+
+.boxInfo {
+  background: rgb(210, 99, 0);
+  background: linear-gradient(0deg, rgba(210, 99, 0, 1) 0%, rgba(255, 178, 49, 1) 100%);
+}
+
+.boxSupport {
+  background: rgb(161, 58, 60);
+  background: linear-gradient(0deg, rgba(161, 58, 60, 1) 0%, rgba(219, 146, 123, 1) 100%);
+}
+
+.boxSwitch {
+  background: rgb(210, 66, 83);
+  background: linear-gradient(0deg, rgba(210, 66, 83, 1) 0%, rgba(222, 120, 57, 1) 100%);
 }
 
 .boxImg {
-  height: 200px;
-  width: 200px;
+  height: 250px;
+  width: 250px;
+  filter: drop-shadow(0 0 10px #222);
+  margin: 25px;
 }
