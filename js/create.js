@@ -1,58 +1,35 @@
-let boxes = document.querySelectorAll('.box')
-console.log(boxes)
+let boxes = document.querySelectorAll('.box');
 
 let activeBox = "boxCall";
+let lastActiveBox = "boxCall";
 
-// document.querySelector('.boxCall').onclick = function() {
-//   if (boxCallClicked == false) {
-//     document.querySelector('.boxCall').classList.add('boxActive');
-// 				boxCallClicked = true
-//   } else {
-//     document.querySelector('.boxCall').classList.remove('boxActive');
-// 				boxCallClicked = false
+document.querySelector('.'+activeBox).classList.add('boxActive');
+console.log(document.querySelector('.'+activeBox))
+
+// for (const box in boxes) {
+
+//   function isActive() {
+//     if (activeBox == boxes[box].classList[1]) {
+//       document.querySelector('.boxesScroll').scrollLeft = 320 * parseInt(box);
+//       // Автоматически подводим скролл к нужжному элементу с помощью простой формулы
+//     }
 //   }
+//   isActive();
+  
 // }
 
-for (let box in boxes) {
-  console.log(boxes[box])
+// Обработчик кликов для выбора элемента в меню
+for (const box in boxes) {
   boxes[box].onclick = function() {
     activeBox = boxes[box].classList[1];
-    
-    if (activeBox == "boxCreate") {
-      document.querySelector('.boxCreate').classList.add('boxActive');
-      document.querySelector('.boxesScroll').scrollLeft = 20;
-    } else {
-      document.querySelector('.boxCreate').classList.remove('boxActive');
-    }
-
-    if (activeBox == "boxCall") {
-      document.querySelector('.boxCall').classList.add('boxActive');
-      document.querySelector('.boxesScroll').scrollLeft = 320;
-    } else {
-      document.querySelector('.boxCall').classList.remove('boxActive');
-    }
-
-    if (activeBox == "boxInfo") {
-      document.querySelector('.boxInfo').classList.add('boxActive');
-      document.querySelector('.boxesScroll').scrollLeft = 640;
-    } else {
-      document.querySelector('.boxInfo').classList.remove('boxActive');
-    }
-
-    if (activeBox == "boxSupport") {
-      document.querySelector('.boxSupport').classList.add('boxActive');
-      document.querySelector('.boxesScroll').scrollLeft = 960;
-    } else {
-      document.querySelector('.boxSupport').classList.remove('boxActive');
-    }
-
-    if (activeBox == "boxSwitch") {
-      document.querySelector('.boxSwitch').classList.add('boxActive');
-      document.querySelector('.boxesScroll').scrollLeft = 1280;
-    } else {
-      document.querySelector('.boxSwitch').classList.remove('boxActive');
-    }
-
+      document.querySelector('.'+lastActiveBox).classList.remove('boxActive');
+      // Удаляем с предыдущего активного элемента активный статус 
+      document.querySelector('.'+boxes[box].classList[1]).classList.add('boxActive');
+      // Добавляем активный статус на прокликанный элемент
+      lastActiveBox = boxes[box].classList[1];
+      // Запоминаем класс предыдущего активного элемента 
+      document.querySelector('.boxesScroll').scrollLeft = 320 * parseInt(box);
+      // Автоматически подводим скролл к нужжному элементу с помощью простой формулы
   }
 }
 
