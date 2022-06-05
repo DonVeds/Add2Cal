@@ -1,19 +1,70 @@
-let boxCallClicked = true;
+let boxes = document.querySelectorAll('.box')
+console.log(boxes)
 
-document.querySelector('.boxCall').onclick = function() {
-  if (boxCallClicked == false) {
-    document.querySelector('.boxCall').classList.add('boxActive');
-				boxCallClicked = true
-  } else {
-    document.querySelector('.boxCall').classList.remove('boxActive');
-				boxCallClicked = false
+let activeBox = "boxCall";
+
+// document.querySelector('.boxCall').onclick = function() {
+//   if (boxCallClicked == false) {
+//     document.querySelector('.boxCall').classList.add('boxActive');
+// 				boxCallClicked = true
+//   } else {
+//     document.querySelector('.boxCall').classList.remove('boxActive');
+// 				boxCallClicked = false
+//   }
+// }
+
+for (let box in boxes) {
+  console.log(boxes[box])
+  boxes[box].onclick = function() {
+    activeBox = boxes[box].classList[1];
+    
+    if (activeBox == "boxCreate") {
+      document.querySelector('.boxCreate').classList.add('boxActive');
+      document.querySelector('.boxesScroll').scrollLeft = 20;
+    } else {
+      document.querySelector('.boxCreate').classList.remove('boxActive');
+    }
+
+    if (activeBox == "boxCall") {
+      document.querySelector('.boxCall').classList.add('boxActive');
+      document.querySelector('.boxesScroll').scrollLeft = 320;
+    } else {
+      document.querySelector('.boxCall').classList.remove('boxActive');
+    }
+
+    if (activeBox == "boxInfo") {
+      document.querySelector('.boxInfo').classList.add('boxActive');
+      document.querySelector('.boxesScroll').scrollLeft = 640;
+    } else {
+      document.querySelector('.boxInfo').classList.remove('boxActive');
+    }
+
+    if (activeBox == "boxSupport") {
+      document.querySelector('.boxSupport').classList.add('boxActive');
+      document.querySelector('.boxesScroll').scrollLeft = 960;
+    } else {
+      document.querySelector('.boxSupport').classList.remove('boxActive');
+    }
+
+    if (activeBox == "boxSwitch") {
+      document.querySelector('.boxSwitch').classList.add('boxActive');
+      document.querySelector('.boxesScroll').scrollLeft = 1280;
+    } else {
+      document.querySelector('.boxSwitch').classList.remove('boxActive');
+    }
+
   }
 }
 
-function scrollToBoxCall() {
-	document.querySelector('.boxesScroll').scrollLeft = 320;
-}
-scrollToBoxCall();
+
+
+
+
+
+// function scrollToBoxCall() {
+// 	document.querySelector('.boxesScroll').scrollLeft = 320;
+// }
+// scrollToBoxCall();
 
 function create(){
   let ZoomTitle = document.getElementById("ZoomTitle").value;
