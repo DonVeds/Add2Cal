@@ -10,7 +10,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;600&family=Exo+2:wght@400;700&display=swap" rel="stylesheet">
 
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
@@ -19,19 +19,19 @@
   </head>
   <body>
     <header>
-      <h1><a href="index.html">//add2cal</a></h1>
-      <p>Simple add to calendar</p>
+      <h1 class="title">Add2Call</h1>
+      <p class="subtitle">Все звонки сразу в календаре</p>
     </header>
 
-    <navbar class="boxesScroll">
-      <div class="box boxCreate boxActive">
+    <nav class="boxesScroll">
+      <div class="box boxCreate">
         <img class="boxImg" src="images/icons/calender.png" alt="">
         <p>Создать</p>
       </div>
 
-      <div class="box boxEvent">
+      <div class="box boxCall boxActive">
         <img class="boxImg" src="images/icons/video.png" alt="">
-        <p>Конференция</p>
+        <p>Звонок</p>
       </div>
 
       <div class="box boxInfo">
@@ -48,7 +48,12 @@
         <img class="boxImg" src="images/icons/toggle.png" alt="">
         <p>Старая версия</p>
       </div>
-    </navbar>
+    </nav>
+
+    <div class="conteiner">
+    </div>
 
   </body>
+
+  <script src="js/create.js"></script>
 </html>

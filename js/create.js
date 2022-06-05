@@ -1,3 +1,20 @@
+let boxCallClicked = true;
+
+document.querySelector('.boxCall').onclick = function() {
+  if (boxCallClicked == false) {
+    document.querySelector('.boxCall').classList.add('boxActive');
+				boxCallClicked = true
+  } else {
+    document.querySelector('.boxCall').classList.remove('boxActive');
+				boxCallClicked = false
+  }
+}
+
+function scrollToBoxCall() {
+	document.querySelector('.boxesScroll').scrollLeft = 320;
+}
+scrollToBoxCall();
+
 function create(){
   let ZoomTitle = document.getElementById("ZoomTitle").value;
 
