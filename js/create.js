@@ -7,12 +7,12 @@ document.querySelector('.'+activeBox).classList.add('boxActive');
 
 // Выделение и скролл пункта в меню при загрузке страницы
 window.onload = function() {
-  for (const box in boxes) {
-    if (activeBox == boxes[box].classList[1]) {
-      document.querySelector('.boxesScroll').scrollLeft = 320 * parseInt(box);
-      // Автоматически подводим скролл к нужжному элементу с помощью простой формулы
-    }
-  }
+  // for (const box in boxes) {
+  //   if (activeBox == boxes[box].classList[1]) {
+  //     document.querySelector('.boxesScroll').scrollLeft = 320 * parseInt(box);
+  //     // Автоматически подводим скролл к нужжному элементу с помощью простой формулы
+  //   }
+  // }
 
   if (document.location.href == "https://donveds.github.io/Add2Cal/") {
     let path = "/Add2Cal/#Create"
