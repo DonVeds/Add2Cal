@@ -4,21 +4,18 @@ let activeBox = "boxCall";
 let lastActiveBox = "boxCall";
 
 document.querySelector('.'+activeBox).classList.add('boxActive');
-console.log(document.querySelector('.'+activeBox))
 
-// for (const box in boxes) {
+// Выделение и скролл пункта в меню при загрузке страницы
+window.onload = function() {
+  for (const box in boxes) {
+    if (activeBox == boxes[box].classList[1]) {
+      document.querySelector('.boxesScroll').scrollLeft = 320 * parseInt(box);
+      // Автоматически подводим скролл к нужжному элементу с помощью простой формулы
+    }
+  }
+}
 
-//   function isActive() {
-//     if (activeBox == boxes[box].classList[1]) {
-//       document.querySelector('.boxesScroll').scrollLeft = 320 * parseInt(box);
-//       // Автоматически подводим скролл к нужжному элементу с помощью простой формулы
-//     }
-//   }
-//   isActive();
-  
-// }
-
-// Обработчик кликов для выбора элемента в меню
+// Обработчик кликов для выделения и скролла пунктов в меню
 for (const box in boxes) {
   boxes[box].onclick = function() {
     activeBox = boxes[box].classList[1];
@@ -30,9 +27,22 @@ for (const box in boxes) {
       // Запоминаем класс предыдущего активного элемента 
       document.querySelector('.boxesScroll').scrollLeft = 320 * parseInt(box);
       // Автоматически подводим скролл к нужжному элементу с помощью простой формулы
+
+      // history.pushState(null, null, '/'+activeBox)
+      // location = "file:///C:/Users/User/Documents/Code/Add2Cal/index.html"+"/"+activeBox
   }
 }
 
+document.body.querySelectorAll('.box')
+        .forEach( link => link.addEventListener('click', link_clickHandler) );
+
+    function link_clickHandler( event ){
+        event.preventDefault();
+
+        let path = "/ghhg";
+
+        window.history.pushState({route: path}, "some title", path);
+    }
 
 
 
