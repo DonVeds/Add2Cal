@@ -1,3 +1,9 @@
+if (document.location.href == "file:///C:/Users/User/Documents/Code/Add2Cal") {
+  let path = "/Add2Cal/#Create"
+  window.history.pushState({route: path}, "Create", path);
+}
+
+
 let boxes = document.querySelectorAll('.box');
 
 let activeBox = "boxCall";
@@ -28,9 +34,9 @@ for (const box in boxes) {
       document.querySelector('.boxesScroll').scrollLeft = 320 * parseInt(box);
       // Автоматически подводим скролл к нужжному элементу с помощью простой формулы
 
-      let path = "/Add2Cal"+"/#"+activeBox.slice(3)
+      let path = "/Add2Cal/#"+activeBox.slice(3)
 
-      window.history.pushState({route: path}, "some title", path);
+      window.history.pushState({route: path}, activeBox.slice(3), path);
   }
 }
 
