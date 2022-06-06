@@ -1,13 +1,7 @@
-if (document.location.href == "file:///C:/Users/User/Documents/Code/Add2Cal") {
-  let path = "/Add2Cal/#Create"
-  window.history.pushState({route: path}, "Create", path);
-}
-
-
 let boxes = document.querySelectorAll('.box');
 
-let activeBox = "boxCall";
-let lastActiveBox = "boxCall";
+let activeBox = "boxCreate";
+let lastActiveBox = "boxCreate";
 
 document.querySelector('.'+activeBox).classList.add('boxActive');
 
@@ -18,6 +12,11 @@ window.onload = function() {
       document.querySelector('.boxesScroll').scrollLeft = 320 * parseInt(box);
       // Автоматически подводим скролл к нужжному элементу с помощью простой формулы
     }
+  }
+
+  if (document.location.href == "https://donveds.github.io/Add2Cal/") {
+    let path = "/Add2Cal/#Create"
+    window.history.pushState({route: path}, "Create", path);
   }
 }
 
