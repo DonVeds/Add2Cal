@@ -28,9 +28,9 @@ for (const box in boxes) {
       document.querySelector('.boxesScroll').scrollLeft = 320 * parseInt(box);
       // Автоматически подводим скролл к нужжному элементу с помощью простой формулы
 
-      // history.pushState(null, null, '/'+activeBox)
-      // location = "file:///C:/Users/User/Documents/Code/Add2Cal/index.html"+"/"+activeBox
-      window.history.pushState({route: "/path"}, "some title", "/path");
+      let path = "/Add2Cal"+"/"+activeBox.slice(3)
+
+      window.history.pushState({route: path}, "some title", path);
   }
 }
 
