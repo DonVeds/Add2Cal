@@ -30,19 +30,19 @@ for (const box in boxes) {
 
       // history.pushState(null, null, '/'+activeBox)
       // location = "file:///C:/Users/User/Documents/Code/Add2Cal/index.html"+"/"+activeBox
+      window.history.pushState({route: "/path"}, "some title", "/path");
   }
 }
 
-document.body.querySelectorAll('.box')
-        .forEach( link => link.addEventListener('click', link_clickHandler) );
+// boxes.forEach( link => link.addEventListener('click', navRouter) );
 
-    function link_clickHandler( event ){
-        event.preventDefault();
+//     function navRouter( event ){
+//         event.preventDefault();
 
-        let path = "/ghhg";
+//         let path = "/"+;
 
-        window.history.pushState({route: path}, "some title", path);
-    }
+//         window.history.pushState({route: path}, "some title", path);
+//     }
 
 
 
