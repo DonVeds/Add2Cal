@@ -1,9 +1,43 @@
 let boxes = document.querySelectorAll('.box');
 
 let activeBox = "boxCreate";
-let lastActiveBox = "boxCreate";
+let lastActiveBox = "";
 
-document.querySelector('.'+activeBox).classList.add('boxActive');
+let scrollParams = {
+  boxCreate: "0",
+  boxCall: "320",
+  boxInfo: "640",
+  boxSupport: "960",
+  boxSwitch: "1280"
+}
+
+
+
+
+
+
+function updateActiveBox() {
+  activeBox = "box"+location.hash.slice(1);
+
+  if (lastActiveBox !== "") {
+    document.querySelector('.'+lastActiveBox).classList.remove('boxActive');
+  }
+  // Удаляем с предыдущего активного элемента активный статус 
+  document.querySelector('.'+activeBox).classList.add('boxActive');
+  // Добавляем активный статус на прокликанный элемент
+  lastActiveBox = activeBox;
+  // Запоминаем класс предыдущего активного элемента 
+  document.querySelector('.boxesScroll').scrollLeft = scrollParams[activeBox];
+}
+
+
+
+
+
+
+
+
+window.onhashchange = updateActiveBox;
 
 // Выделение и скролл пункта в меню при загрузке страницы
 window.onload = function() {
@@ -14,40 +48,24 @@ window.onload = function() {
   //   }
   // }
 
-  if (document.location.href == "https://donveds.github.io/Add2Cal/") {
-    let path = "/Add2Cal/#Create"
-    window.history.pushState({route: path}, "Create", path);
-  }
+  location.hash = activeBox.slice(3)
+  updateActiveBox;
 }
 
 // Обработчик кликов для выделения и скролла пунктов в меню
 for (const box in boxes) {
   boxes[box].onclick = function() {
-    activeBox = boxes[box].classList[1];
-      document.querySelector('.'+lastActiveBox).classList.remove('boxActive');
-      // Удаляем с предыдущего активного элемента активный статус 
-      document.querySelector('.'+boxes[box].classList[1]).classList.add('boxActive');
-      // Добавляем активный статус на прокликанный элемент
-      lastActiveBox = boxes[box].classList[1];
-      // Запоминаем класс предыдущего активного элемента 
-      document.querySelector('.boxesScroll').scrollLeft = 320 * parseInt(box);
-      // Автоматически подводим скролл к нужжному элементу с помощью простой формулы
+    location.hash = boxes[box].classList[1].slice(3);
 
-      let path = "/Add2Cal/#"+activeBox.slice(3)
-
-      window.history.pushState({route: path}, activeBox.slice(3), path);
+    updateActiveBox;
+    
+    // document.querySelector('.boxesScroll').scrollLeft = 320 * parseInt(box);
+    // Автоматически подводим скролл к нужжному элементу с помощью простой формулы
+      
+    // location.hash = activeBox.slice(3)
   }
 }
 
-// boxes.forEach( link => link.addEventListener('click', navRouter) );
-
-//     function navRouter( event ){
-//         event.preventDefault();
-
-//         let path = "/"+;
-
-//         window.history.pushState({route: path}, "some title", path);
-//     }
 
 
 
