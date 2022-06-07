@@ -16,7 +16,7 @@ nav {
 .title {
   font-family: 'Exo 2', sans-serif;
   font-weight: 700;
-  font-size: 54px;
+  font-size: 3rem;
   margin-top: 0px;
   margin-bottom: 5px;
 }
@@ -24,7 +24,7 @@ nav {
 .subtitle {
   font-weight: 600;
   margin-top: 5px;
-  font-size: 24px;
+  font-size: 1.5rem;
 }
 
 .boxesScroll {
@@ -43,14 +43,14 @@ nav {
 }
 
 .box {
-  height: 400px;
-  width: 300px;
+  height: 350px;
+  width: 250px;
   flex-shrink: 0;
   margin-right: 20px;
   margin-top: 20px;
   border-radius: 30px;
   color: white;
-  font-size: 32px;
+  font-size: 1.7rem;
   text-align: center;
   font-family: 'Exo 2', sans-serif;
 }
@@ -89,16 +89,22 @@ nav {
 }
 
 .boxImg {
-  height: 220px;
-  width: 220px;
+  height: 190px;
+  width: 190px;
   filter: drop-shadow(0 0 10px #222);
-  margin: 40px;
+  margin: 30px;
 }
 
-.conteiner {
+.container {
   padding-left: 20px;
   max-width: calc(100vw - 20px);
+  display: none;
 }
+
+.containerActive {
+  display: block;
+}
+
 
 
 

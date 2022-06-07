@@ -3,18 +3,16 @@ let boxes = document.querySelectorAll('.box');
 let activeBox = "boxCreate";
 let lastActiveBox = "";
 
+let activeContainer = "containerCreate";
+let lastActiveContainer = "";
+
 let scrollParams = {
   boxCreate: "0",
-  boxCall: "320",
-  boxInfo: "640",
-  boxSupport: "960",
-  boxSwitch: "1280"
+  boxCall: "270",
+  boxInfo: "540",
+  boxSupport: "810",
+  boxSwitch: "1080"
 }
-
-
-
-
-
 
 function updateActiveBox() {
   activeBox = "box"+location.hash.slice(1);
@@ -28,41 +26,33 @@ function updateActiveBox() {
   lastActiveBox = activeBox;
   // Запоминаем класс предыдущего активного элемента 
   document.querySelector('.boxesScroll').scrollLeft = scrollParams[activeBox];
+
+
+  activeContainer = "container"+location.hash.slice(1);
+
+  if (lastActiveContainer !== "") {
+    document.querySelector('.'+lastActiveContainer).classList.remove('containerActive');
+  }
+  // Удаляем с предыдущего активного элемента активный статус 
+  document.querySelector('.'+activeContainer).classList.add('containerActive');
+  // Добавляем активный статус на прокликанный элемент
+  lastActiveContainer = activeContainer;
+  // Запоминаем класс предыдущего активного элемента 
 }
-
-
-
-
-
-
-
-
-window.onhashchange = updateActiveBox;
 
 // Выделение и скролл пункта в меню при загрузке страницы
 window.onload = function() {
-  // for (const box in boxes) {
-  //   if (activeBox == boxes[box].classList[1]) {
-  //     document.querySelector('.boxesScroll').scrollLeft = 320 * parseInt(box);
-  //     // Автоматически подводим скролл к нужжному элементу с помощью простой формулы
-  //   }
-  // }
-
   location.hash = activeBox.slice(3)
-  updateActiveBox;
+  updateActiveBox();
 }
+
+window.onhashchange = updateActiveBox;
 
 // Обработчик кликов для выделения и скролла пунктов в меню
 for (const box in boxes) {
   boxes[box].onclick = function() {
     location.hash = boxes[box].classList[1].slice(3);
-
-    updateActiveBox;
-    
-    // document.querySelector('.boxesScroll').scrollLeft = 320 * parseInt(box);
-    // Автоматически подводим скролл к нужжному элементу с помощью простой формулы
-      
-    // location.hash = activeBox.slice(3)
+    updateActiveBox();
   }
 }
 
