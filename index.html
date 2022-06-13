@@ -51,7 +51,31 @@
     </nav>
 
     <div class="container containerCreate">
-      <p>Create</p>
+      <div class="createTextarea">
+        <textarea class="textareaLink" rows="5" placeholder="Ссылка или приглашение"></textarea>
+      </div>
+
+      <div class="createForm">
+        <input class="formTitle" type="text" placeholder="Meeting Title">
+        
+        <div class="formField">
+          <div class="control">
+            <button onclick="create()" class="button is-warning">Создать</button>
+          </div>
+          <div class="control">
+            <button onclick="cancel()" class="button is-warning is-light">Отменить</button>
+          </div>
+          <div class="select">
+            <select class="DurationSelect">
+              <option>30 минут</option>
+              <option>60 минут</option>
+              <option>90 минут</option>
+              <option>120 минут</option>
+            </select>
+          </div>
+        </div>
+        
+      </div>
     </div>
 
     <div class="container containerCall">
