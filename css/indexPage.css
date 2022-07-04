@@ -105,25 +105,53 @@ nav {
 }
 
 .containerCreate {
-  display: flex;
-  flex-wrap: wrap;
   margin-top: 40px;
 }
 
+.createFlexBox {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .createTextarea {
-  height: 400px;
+  height: 200px;
   width: 400px;
 }
 
 .textareaLink {
-  height: 400px;
-  width: 400px;
+  height: 190px;
+  width: 390px;
   resize: none;
+  border-radius: 10px;
+  padding: 5px;
 }
 
 .createForm {
-  height: 400px;
-  width: 400px;
+  height: 200px;
+  width: 250px;
+  background-color: lightcoral;
+}
+
+.formTitle {
+  border-radius: 6px;
+  border: 1px solid black;
+  width: 100%;
+}
+
+.formTime {
+
+}
+
+.formTime input {
+  width: 110px;
+}
+
+
+
+.formCheck {
+  height: 200px;
+  width: 50px;
+  background-color: lightsalmon;
 }
 
 

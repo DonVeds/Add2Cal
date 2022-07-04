@@ -51,30 +51,51 @@
     </nav>
 
     <div class="container containerCreate">
-      <div class="createTextarea">
-        <textarea class="textareaLink" rows="5" placeholder="Ссылка или приглашение"></textarea>
-      </div>
-
-      <div class="createForm">
-        <input class="formTitle" type="text" placeholder="Meeting Title">
-        
-        <div class="formField">
-          <div class="control">
-            <button onclick="create()" class="button is-warning">Создать</button>
-          </div>
-          <div class="control">
-            <button onclick="cancel()" class="button is-warning is-light">Отменить</button>
-          </div>
-          <div class="select">
-            <select class="DurationSelect">
-              <option>30 минут</option>
-              <option>60 минут</option>
-              <option>90 минут</option>
-              <option>120 минут</option>
-            </select>
-          </div>
+      <div class="createFlexBox">
+        <div class="createTextarea">
+          <textarea class="textareaLink" rows="5" placeholder="Ссылка или приглашение"></textarea>
         </div>
-        
+
+        <div class="createForm">
+          <input class="formTitle" type="text" placeholder="Название">
+
+          <p class="formLink">Ссылка</p>
+
+          <div class="formTime">
+            <input type="time">
+            <input type="time">
+          </div>
+
+          <input class="formDate" type="date">
+
+          <div class="formTimezone">
+              <select>
+                <option>МСК</option>
+                <option>ЕКБ</option>
+                <option>НСБ</option>
+                <option>ВЛД</option>
+              </select>
+            </div>
+          
+          <div class="formField">
+            <div class="control">
+              <button onclick="create()" class="button is-warning">Создать</button>
+            </div>
+            <div class="control">
+              <button onclick="cancel()" class="button is-warning is-light">Сбросить</button>
+            </div>
+          </div>
+          
+        </div>
+
+        <div class="formCheck">
+          <p>✔️</p>
+          <p>✔️</p>
+          <p>✔️</p>
+          <p>✔️</p>
+          <p>✔️</p>
+          <p>✔️</p>
+        </div>
       </div>
     </div>
 
