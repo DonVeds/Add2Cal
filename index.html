@@ -51,38 +51,54 @@
     </nav>
 
     <div class="container containerCreate">
+      <h2>Создайте звонок</h2>
       <div class="createFlexBox">
         <div class="createTextarea">
           <textarea class="textareaLink" rows="5" placeholder="Ссылка или приглашение"></textarea>
         </div>
 
         <div class="createForm">
-          <input class="formTitle" type="text" placeholder="Название">
 
-          <p class="formLink">Ссылка</p>
-
-          <div class="formTime">
-            <input type="time">
-            <input type="time">
+          <div class="formTitle">
+            <p class="formTitle_title">Title</p>
+            <input class="formTitle_input" type="text" placeholder="Название">
+          </div>
+          
+          <div class="formLink">
+            <p class="formLink_title">Title</p>
+            <p class="formLink_link">...</p>
           </div>
 
-          <input class="formDate" type="date">
+          <div class="formTime">
+            <p class="formTime_title_start">Title</p>
+            <p class="formTime_title_end">Title</p>
+            <input class="formTime_input_start" type="time">
+            <input class="formTime_input_end"type="time">
+          </div>
+
+          <div class="formDate">
+            <p class="formDate_title">Title</p>
+            <input class="formDate_input" type="date">
+          </div>
 
           <div class="formTimezone">
-              <select>
-                <option>МСК</option>
-                <option>ЕКБ</option>
-                <option>НСБ</option>
-                <option>ВЛД</option>
-              </select>
-            </div>
+            <p class="formTimezone_title">Title</p>
+            <input class="formTimezone_input" list="timezones"/>
+            <datalist id="timezones">
+              <option value="Chrome">
+              <option value="Firefox">
+              <option value="Internet Explorer">
+              <option value="Opera">
+              <option value="Safari">
+              <option value="Microsoft Edge">
+            </datalist>
+          </div>
           
           <div class="formField">
-            <div class="control">
+            <p class="formField_title"></p>
+            <div class="formField_buttons">
+              <button onclick="cancel()" class="button is-warning is-light">Авто</button>
               <button onclick="create()" class="button is-warning">Создать</button>
-            </div>
-            <div class="control">
-              <button onclick="cancel()" class="button is-warning is-light">Сбросить</button>
             </div>
           </div>
           
