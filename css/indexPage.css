@@ -138,7 +138,7 @@ nav {
 }
 
 .formTitle {
-  height: calc(100%/6);
+  height: calc(100%/5);
 }
 
 .formTitle_title {
@@ -155,23 +155,8 @@ nav {
   border: 3px solid #D5CDCB;
 }
 
-.formLink {
-  height: calc(100%/6);
-}
-
-.formLink_title {
-  height: 40%;
-  margin: 0;
-  vertical-align: bottom;
-}
-
-.formLink_link {
-  margin: 0;
-  height: 60%;
-}
-
 .formTime {
-  height: calc(100%/6);
+  height: calc(100%/5);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -191,7 +176,7 @@ nav {
 }
 
 .formDate {
-  height: calc(100%/6);
+  height: calc(100%/5);
 }
 
 .formDate_title {
@@ -207,7 +192,7 @@ nav {
 }
 
 .formTimezone { 
-  height: calc(100%/6);
+  height: calc(100%/5);
 }
 
 .formTimezone_title {
@@ -223,7 +208,7 @@ nav {
 }
 
 .formField {
-  height: calc(100%/6);
+  height: calc(100%/5);
 }
 
 .formField_title {
