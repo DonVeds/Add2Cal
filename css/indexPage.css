@@ -143,12 +143,10 @@ nav {
 .formTitle_title {
   height: auto;
   margin: 0;
-  padding-top: 3%;
 }
 
 .formTitle_input {
   border-radius: 6px;
-  border: 1px solid black;
   width: calc(100% - 10px);
   height: calc(60% - 8px);
   border-radius: 10px;
@@ -160,12 +158,12 @@ nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-content: flex-start
 }
 
 .formTime_title_start, .formTime_title_end {
   height: auto;
   margin: 0;
-  padding-top: 3%;
   width: calc(49% - 3px);
 }
 
@@ -183,7 +181,6 @@ nav {
 .formDate_title {
   height: auto;
   margin: 0;
-  padding-top: 3%;
 } 
 
 .formDate_input {
@@ -200,7 +197,6 @@ nav {
 .formTimezone_title {
   height: auto;
   margin: 0;
-  padding-top: 3%;
 }
 
 .formTimezone_input {
@@ -215,12 +211,12 @@ nav {
 }
 
 .formField_title {
-  height: 30%;
+  height: 20%;
   margin: 0;
 }
 
 .formField_buttons {
-  height: 70%;
+  height: 80%;
   display: flex;
   justify-content: space-between;
 }

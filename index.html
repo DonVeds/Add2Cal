@@ -20,64 +20,64 @@
   <body>
     <header>
       <h1 class="title">Add2Cal</h1>
-      <p class="subtitle">Все звонки сразу в календаре</p>
+      <p class="subtitle">Add all calls in calendar</p>
     </header>
 
     <nav class="boxesScroll">
       <div class="box boxCreate">
         <img class="boxImg" src="images/icons/calender.png" alt="">
-        <p>Создать</p>
+        <p>Create</p>
       </div>
 
       <div class="box boxCall">
         <img class="boxImg" src="images/icons/video.png" alt="">
-        <p>Звонок</p>
+        <p>Call</p>
       </div>
 
       <div class="box boxInfo">
         <img class="boxImg" src="images/icons/folder.png" alt="">
-        <p>Информация</p>
+        <p>Info</p>
       </div>
 
       <div class="box boxSupport">
         <img class="boxImg" src="images/icons/takeaway.png" alt="">
-        <p>Поддержка</p>
+        <p>Support</p>
       </div>
 
       <div class="box boxSwitch">
         <img class="boxImg" src="images/icons/toggle.png" alt="">
-        <p>Старая версия</p>
+        <p>Old Version</p>
       </div>
     </nav>
 
     <div class="container containerCreate">
-      <h2>Создайте звонок</h2>
+      <h2>Create Call</h2>
       <div class="createFlexBox">
         <div class="createTextarea">
-          <textarea class="textareaLink" rows="5" placeholder="Ссылка или приглашение"></textarea>
+          <textarea class="textareaLink" rows="5" placeholder="Link or Invitation"></textarea>
         </div>
 
         <div class="createForm">
 
           <div class="formTitle">
             <p class="formTitle_title">Title</p>
-            <input class="formTitle_input" type="text" placeholder="Название">
+            <input class="formTitle_input" type="text" placeholder="Tech interview">
           </div>
 
           <div class="formTime">
-            <p class="formTime_title_start">Title</p>
-            <p class="formTime_title_end">Title</p>
+            <p class="formTime_title_start">From</p>
+            <p class="formTime_title_end">To</p>
             <input class="formTime_input_start" type="time">
             <input class="formTime_input_end"type="time">
           </div>
 
           <div class="formDate">
-            <p class="formDate_title">Title</p>
+            <p class="formDate_title">Date</p>
             <input class="formDate_input" type="date">
           </div>
 
           <div class="formTimezone">
-            <p class="formTimezone_title">Title</p>
+            <p class="formTimezone_title">Timezone</p>
             <input class="formTimezone_input" list="timezones"/>
             <datalist id="timezones">
               <option value="GMT-12">
@@ -111,8 +111,8 @@
           <div class="formField">
             <p class="formField_title"></p>
             <div class="formField_buttons">
-              <button onclick="cancel()" class="button is-warning is-light">Авто</button>
-              <button onclick="create()" class="button is-warning">Создать</button>
+              <button onclick="cancel()" class="button is-warning is-light">Auto Paste</button>
+              <button onclick="create()" class="button is-warning">Create</button>
             </div>
           </div>
           
