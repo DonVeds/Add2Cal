@@ -18,132 +18,133 @@
     <link rel="manifest" href="favicon/site.webmanifest">
   </head>
   <body>
-    <header>
-      <h1 class="title">Add2Cal</h1>
-      <p class="subtitle">Add all calls in calendar</p>
-    </header>
+    <div class="PagePadding">
+      <header>
+        <h1 class="title">Add2Cal</h1>
+        <p class="subtitle">Add all calls in calendar</p>
+      </header>
 
-    <nav class="boxesScroll">
-      <div class="box boxCreate">
-        <img class="boxImg" src="images/icons/calender.png" alt="">
-        <p>Create</p>
+      <nav class="boxesScroll">
+        <div class="box boxCreate">
+          <img class="boxImg" src="images/icons/calender.png" alt="">
+          <p>Create</p>
+        </div>
+
+        <div class="box boxCall">
+          <img class="boxImg" src="images/icons/video.png" alt="">
+          <p>Call</p>
+        </div>
+
+        <div class="box boxInfo">
+          <img class="boxImg" src="images/icons/folder.png" alt="">
+          <p>Info</p>
+        </div>
+
+        <div class="box boxSupport">
+          <img class="boxImg" src="images/icons/takeaway.png" alt="">
+          <p>Support</p>
+        </div>
+
+        <div class="box boxSwitch">
+          <img class="boxImg" src="images/icons/toggle.png" alt="">
+          <p>Old Version</p>
+        </div>
+      </nav>
+
+      <div class="container containerCreate">
+        <h2 class="conteinerSubtitle">Create Call</h2>
+        <div class="createFlexBox">
+          <div class="containerBox createTextarea">
+            <textarea class="textareaLink" rows="5" placeholder="Link or Invitation"></textarea>
+          </div>
+
+          <div class="containerBox createForm">
+
+            <div class="formTitle">
+              <p class="formTitle_title">Title</p>
+              <input class="formTitle_input" type="text" placeholder="Tech interview">
+            </div>
+
+            <div class="formTime">
+              <p class="formTime_title_start">From</p>
+              <p class="formTime_title_end">To</p>
+              <input class="formTime_input_start" type="time">
+              <input class="formTime_input_end"type="time">
+            </div>
+
+            <div class="formDate">
+              <p class="formDate_title">Date</p>
+              <input class="formDate_input" type="date">
+            </div>
+
+            <div class="formTimezone">
+              <p class="formTimezone_title">Timezone</p>
+              <input class="formTimezone_input" list="timezones"/>
+              <datalist id="timezones">
+                <option value="GMT-12">
+                <option value="GMT-11">
+                <option value="GMT-10">
+                <option value="GMT-9">
+                <option value="GMT-8">
+                <option value="GMT-7">
+                <option value="GMT-6">
+                <option value="GMT-5">
+                <option value="GMT-4">
+                <option value="GMT-3">
+                <option value="GMT-2">
+                <option value="GMT-1">
+                <option value="GMT 0">
+                <option value="GMT+1">
+                <option value="GMT+2">
+                <option value="GMT+3">
+                <option value="GMT+4">
+                <option value="GMT+5">
+                <option value="GMT+6">
+                <option value="GMT+7">
+                <option value="GMT+8">
+                <option value="GMT+9">
+                <option value="GMT+10">
+                <option value="GMT+11">
+                <option value="GMT+12">
+              </datalist>
+            </div>
+            
+            <div class="formField">
+              <p class="formField_title"></p>
+              <div class="formField_buttons">
+                <button onclick="cancel()" class="button is-warning is-light">Auto Paste</button>
+                <button onclick="create()" class="button is-warning">Create</button>
+              </div>
+            </div>
+            
+          </div>
+            
+          </div>
+        </div>
       </div>
 
-      <div class="box boxCall">
-        <img class="boxImg" src="images/icons/video.png" alt="">
-        <p>Call</p>
+      <div class="container containerCall">
+        <h2 class="conteinerSubtitle">Your call</h2>
       </div>
 
-      <div class="box boxInfo">
-        <img class="boxImg" src="images/icons/folder.png" alt="">
+      <div class="container containerInfo">
         <p>Info</p>
       </div>
 
-      <div class="box boxSupport">
-        <img class="boxImg" src="images/icons/takeaway.png" alt="">
+      <div class="container containerSupport">
         <p>Support</p>
       </div>
 
-      <div class="box boxSwitch">
-        <img class="boxImg" src="images/icons/toggle.png" alt="">
-        <p>Old Version</p>
+      <div class="container containerSwitch">
+        <p>Switch</p>
       </div>
-    </nav>
 
-    <div class="container containerCreate">
-      <h2>Create Call</h2>
-      <div class="createFlexBox">
-        <div class="createTextarea">
-          <textarea class="textareaLink" rows="5" placeholder="Link or Invitation"></textarea>
-        </div>
-
-        <div class="createForm">
-
-          <div class="formTitle">
-            <p class="formTitle_title">Title</p>
-            <input class="formTitle_input" type="text" placeholder="Tech interview">
-          </div>
-
-          <div class="formTime">
-            <p class="formTime_title_start">From</p>
-            <p class="formTime_title_end">To</p>
-            <input class="formTime_input_start" type="time">
-            <input class="formTime_input_end"type="time">
-          </div>
-
-          <div class="formDate">
-            <p class="formDate_title">Date</p>
-            <input class="formDate_input" type="date">
-          </div>
-
-          <div class="formTimezone">
-            <p class="formTimezone_title">Timezone</p>
-            <input class="formTimezone_input" list="timezones"/>
-            <datalist id="timezones">
-              <option value="GMT-12">
-              <option value="GMT-11">
-              <option value="GMT-10">
-              <option value="GMT-9">
-              <option value="GMT-8">
-              <option value="GMT-7">
-              <option value="GMT-6">
-              <option value="GMT-5">
-              <option value="GMT-4">
-              <option value="GMT-3">
-              <option value="GMT-2">
-              <option value="GMT-1">
-              <option value="GMT 0">
-              <option value="GMT+1">
-              <option value="GMT+2">
-              <option value="GMT+3">
-              <option value="GMT+4">
-              <option value="GMT+5">
-              <option value="GMT+6">
-              <option value="GMT+7">
-              <option value="GMT+8">
-              <option value="GMT+9">
-              <option value="GMT+10">
-              <option value="GMT+11">
-              <option value="GMT+12">
-            </datalist>
-          </div>
-          
-          <div class="formField">
-            <p class="formField_title"></p>
-            <div class="formField_buttons">
-              <button onclick="cancel()" class="button is-warning is-light">Auto Paste</button>
-              <button onclick="create()" class="button is-warning">Create</button>
-            </div>
-          </div>
-          
-        </div>
-
-        <div class="formCheck">
-          <p>✔️</p>
-          <p>✔️</p>
-          <p>✔️</p>
-          <p>✔️</p>
-          <p></p>
-        </div>
-      </div>
+      <footer class="footer">
+        <div class="footerSpace"></div>
+        <p class="footerPar">(c) Khudyakov D</p>
+      </footer>
     </div>
-
-    <div class="container containerCall">
-      <p>Call</p>
     </div>
-
-    <div class="container containerInfo">
-      <p>Info</p>
-    </div>
-
-    <div class="container containerSupport">
-      <p>Support</p>
-    </div>
-
-    <div class="container containerSwitch">
-      <p>Switch</p>
-    </div>
-
   </body>
 
   <script src="js/create.js"></script>
