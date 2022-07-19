@@ -16,12 +16,6 @@ header {
   width: calc(100% - 20px);
 }
 
-@media screen and (max-width: 700px) {
-  header {
-    width: calc(100% - 20px);
-  }
-}
-
 .title {
   font-family: 'Exo 2', sans-serif;
   font-weight: 700;
@@ -34,12 +28,6 @@ header {
   font-weight: 600;
   margin-top: 5px;
   font-size: 1.5rem;
-}
-
-@media screen and (max-width: 700px) {
-  nav {
-    width: calc(100% - 20px);
-  }
 }
 
 .boxesScroll {
@@ -113,12 +101,6 @@ header {
   margin-top: 40px;
 }
 
-@media screen and (max-width: 700px) {
-  .container {
-    width: calc(100% - 20px);
-  }
-}
-
 .containerActive {
   display: block;
 }
@@ -154,7 +136,7 @@ header {
 @media screen and (max-width: 700px) {
   .containerBox {
     width: calc(100% - 20px);
-    margin-bottom: 10px;
+    margin-bottom: 10px; 
   }
 }
 
@@ -261,12 +243,6 @@ header {
   font-size: 1rem;
   font-family: 'Exo 2', sans-serif;
   width: calc(100% - 20px);
-}
-
-@media screen and (max-width: 700px) {
-  footer {
-    width: calc(100% - 20px);
-  }
 }
 
 .footerSpace {
