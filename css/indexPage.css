@@ -233,10 +233,95 @@ header {
   background-color: #ebebeb;
 }
 
+.CallSmartTime {
+  font-family: 'Exo 2', sans-serif;
 
+  width: 665px;
+  height: 150px;
 
+  border: 10px solid #D5CDCB;
+  border-radius: 30px;
 
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
 
+@media screen and (max-width: 700px) {
+  .CallSmartTime {
+    font-family: 'Exo 2', sans-serif;
+    
+    width: calc(100% - 45px);
+    height: 150px;
+    
+    border: 5px solid #D5CDCB;
+    border-radius: 30px;
+    
+    padding-left: 15px;
+    margin-bottom: 20px;
+  }
+}
+
+.CallSmartTime_Name {
+  font-weight: 700;
+  font-size: 2.3rem;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.CallSmartTime_TimeAndDate {
+  font-weight: 700;
+  font-size: 1.6rem;
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.CallSmartTime_Date {
+  font-weight: 600;
+  margin-top: 5px;
+  font-size: 1.3rem;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.CallCalendarButtons_title {
+  margin-bottom: 8px;
+}
+
+.CallCalendarButtons {
+  display: flex;
+}
+
+@media screen and (max-width: 700px) {
+  .CallCalendarButtons {
+    display: flex;
+    width: calc(100% - 20px);
+    margin-bottom: 15px;
+  }
+}
+
+.CalendarButton {
+  margin-right: 10px;
+  height: 50px;
+  border: 3px solid #D5CDCB;
+  border-radius: 10px;
+  background-color: #ebebeb;
+}
+
+.CallDescription {
+  width: 500px;
+  background-color: #ececec;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.CallDescription_title {
+  margin: 0;
+}
+
+.CallDescription_value {
+  margin: 0 0 10px 0;
+  font-weight: bold;
+}
 
 
 .footer {

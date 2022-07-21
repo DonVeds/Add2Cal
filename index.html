@@ -52,7 +52,6 @@
       </nav>
 
       <div class="container containerCreate">
-        <h2 class="conteinerSubtitle">Create Call</h2>
         <div class="createFlexBox">
           <div class="containerBox createTextarea">
             <textarea class="textareaLink" rows="5" placeholder="Link or Invitation"></textarea>
@@ -112,20 +111,52 @@
             <div class="formField">
               <p class="formField_title"></p>
               <div class="formField_buttons">
-                <button onclick="cancel()" class="button is-warning is-light">Auto Paste</button>
-                <button onclick="create()" class="button is-warning">Create</button>
+                <button onclick="cancel()" class="">Clear</button>
+                <button onclick="create()" class="">Create</button>
               </div>
             </div>
             
           </div>
             
-          </div>
         </div>
 
-      <div class="container containerCall">
-        <h2 class="conteinerSubtitle">Your call</h2>
       </div>
 
+      <div class="container containerCall">
+
+          <div class="CallSmartTime">
+            <h1 class="CallSmartTime_Name">Tech interview</h1>
+            <h1 class="CallSmartTime_TimeAndDate">Monday, 14:00 GMT+3</h1>
+            <p class="CallSmartTime_Date">24.04.2022</p>
+          </div>
+
+          
+          <div class="CallDescription">
+            <p class="CallDescription_title">Name:</p>
+            <p class="CallDescription_value CallDescription_name">Tech interview</p>
+
+            <p class="CallDescription_title">Time:</p>
+            <p class="CallDescription_value CallDescription_time">14:00 - 15:00</p>
+
+            <p class="CallDescription_title">Timezone:</p>
+            <p class="CallDescription_value CallDescription_timeZone">GMT+3</p>
+            
+            <p class="CallDescription_title">Date:</p>
+            <p class="CallDescription_value CallDescription_date">24.04.2022</p>
+            
+            <p class="CallDescription_title">Link:</p>
+            <p class="CallDescription_value CallDescription_link">www.zoom.com</p>
+          </div>
+          
+          <p class="CallCalendarButtons_title">Add to:</p>
+          <div class="CallCalendarButtons">
+            <button class="CalendarButton">Google Calendar</button>
+            <button class="CalendarButton">Apple Calendar</button>
+            <button class="CalendarButton">Outlook Calendar</button>
+          </div>
+          
+        </div>
+        
       <div class="container containerInfo">
         <p>Info</p>
       </div>
