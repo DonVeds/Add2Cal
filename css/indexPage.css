@@ -194,6 +194,13 @@ header {
   border: 3px solid #D5CDCB;
 }
 
+.formTime_input_start,
+.formTime_input_end,
+.formDate_input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
 .formTimezone { 
   height: calc(100%/5);
 }
