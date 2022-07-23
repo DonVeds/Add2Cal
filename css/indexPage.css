@@ -169,6 +169,8 @@ header {
   height: auto;
   margin: 0;
   width: calc(49% - 3px);
+  background-color: white;
+  color: black;
 }
 
 .formTime_input_start, .formTime_input_end {
@@ -176,6 +178,7 @@ header {
   height: calc(60% - 8px);
   border-radius: 10px;
   border: 3px solid #D5CDCB;
+  padding: 0 0 0 1px;
 }
 
 .formDate {
@@ -192,6 +195,8 @@ header {
   width: calc(100% - 7px);
   border-radius: 10px;
   border: 3px solid #D5CDCB;
+  background-color: white;
+  color: black;
 }
 
 .formTime_input_start,
@@ -215,6 +220,7 @@ header {
   height: calc(60% - 8px);
   border-radius: 10px;
   border: 3px solid #D5CDCB;
+  color: black;
 }
 
 .formField {
@@ -230,6 +236,7 @@ header {
   height: 80%;
   display: flex;
   justify-content: space-between;
+  color: black;
 }
 
 .formField_buttons > button {
