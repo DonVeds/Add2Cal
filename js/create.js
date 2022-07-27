@@ -1,6 +1,6 @@
 let boxes = document.querySelectorAll('.box');
 
-let activeBox = "boxCreate";
+let activeBox = "box"+location.hash.slice(1) || "boxCreate";
 let lastActiveBox = "";
 
 let activeContainer = "containerCreate";
@@ -56,15 +56,15 @@ for (const box in boxes) {
   }
 }
 
-var docWidth = document.documentElement.offsetWidth;
-[].forEach.call(
-  document.querySelectorAll('*'),
-  function(el) {
-    if (el.offsetWidth > docWidth) {
-      console.log(el);
-    }
-  }
-);
+// var docWidth = document.documentElement.offsetWidth;
+// [].forEach.call(
+//   document.querySelectorAll('*'),
+//   function(el) {
+//     if (el.offsetWidth > docWidth) {
+//       console.log(el);
+//     }
+//   }
+// );
 
 
 
