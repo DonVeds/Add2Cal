@@ -64,13 +64,35 @@ let formDate = document.querySelector('.formDate_input');
 let formTimezone = document.querySelector('.formTimezone_input ');
 
 function AutoPaste() {
+  let link = textareaLink.value.match(/(ftp:\/\/|www\.|https?:\/\/){1}[a-zA-Z0-9u00a1-\uffff0-]{2,}\.[a-zA-Z0-9u00a1-\uffff0-]{2,}(\S*)/);
   let time = textareaLink.value.match(/((0?[1-9]|1[0-2]):[0-5][0-9](\–|\-)(0?[1-9]|1[0-2]):[0-5][0-9])|((0?[1-9]|1[0-2]):[0-5][0-9])/);
   let AMPM = textareaLink.value.match(/AM|PM/);
-  let link = textareaLink.value.match(/(ftp:\/\/|www\.|https?:\/\/){1}[a-zA-Z0-9u00a1-\uffff0-]{2,}\.[a-zA-Z0-9u00a1-\uffff0-]{2,}(\S*)/);
+  let date = textareaLink.value.match(/([1-9]|[1-3][0-9])\s(\S*)/);
+
+  let dateDay = date[0].split(" ")[0];
+  if (parseInt(dateDay)<10) dateDay = "0"+dateDay;
+  let dateMonth = date[0].split(" ")[1];
+
+  if (dateMonth == "янв."|"января") dateMonth = '01';
+  if (dateMonth == "фев."|"февраля") dateMonth = '02';
+  if (dateMonth == "мар."|"марта") dateMonth = '03';
+  if (dateMonth == "апр."|"апреля") dateMonth = '04';
+  if (dateMonth == "мая"|"мая") dateMonth = '05';
+  if (dateMonth == "июн."|"июня") dateMonth = '06';
+  if (dateMonth == "июл."|"июля") dateMonth = '07';
+  if (dateMonth == "авг."|"августа") dateMonth = '08';
+  if (dateMonth == "сен."|"сентября") dateMonth = '09';
+  if (dateMonth == "окт."|"октября") dateMonth = '10';
+  if (dateMonth == "ноя."|"ноября") dateMonth = '11';
+  if (dateMonth == "дек."|"декабря") dateMonth = '12';
 
   if (time) console.log(time[0]);
   if (AMPM) console.log(AMPM[0]);
   if (link) console.log(link[0]);
+  if (date) console.log(date[0]);
+
+  if (time) formTime_start.value = time[0];
+  if (date) formDate.value = `2022-${dateMonth}-${dateDay}`
 }
 
 textareaLink.oninput = AutoPaste;
