@@ -73,18 +73,18 @@ function AutoPaste() {
   if (parseInt(dateDay)<10) dateDay = "0"+dateDay;
   let dateMonth = date[0].split(" ")[1];
 
-  if (dateMonth == "янв."|"января") dateMonth = '01';
-  if (dateMonth == "фев."|"февраля") dateMonth = '02';
-  if (dateMonth == "мар."|"марта") dateMonth = '03';
-  if (dateMonth == "апр."|"апреля") dateMonth = '04';
-  if (dateMonth == "мая"|"мая") dateMonth = '05';
-  if (dateMonth == "июн."|"июня") dateMonth = '06';
-  if (dateMonth == "июл."|"июля") dateMonth = '07';
-  if (dateMonth == "авг."|"августа") dateMonth = '08';
-  if (dateMonth == "сен."|"сентября") dateMonth = '09';
-  if (dateMonth == "окт."|"октября") dateMonth = '10';
-  if (dateMonth == "ноя."|"ноября") dateMonth = '11';
-  if (dateMonth == "дек."|"декабря") dateMonth = '12';
+  if (dateMonth == "Jan"|"янв."|"января") dateMonth = '01';
+  if (dateMonth == "Feb"|"фев."|"февраля") dateMonth = '02';
+  if (dateMonth == "Mar"|"мар."|"марта") dateMonth = '03';
+  if (dateMonth == "Apr"|"апр."|"апреля") dateMonth = '04';
+  if (dateMonth == "May"|"мая"|"мая") dateMonth = '05';
+  if (dateMonth == "Jun"|"июн."|"июня") dateMonth = '06';
+  if (dateMonth == "Jul"|"июл."|"июля") dateMonth = '07';
+  if (dateMonth == "Aug"|"авг."|"августа") dateMonth = '08';
+  if (dateMonth == "Sep"|"сен."|"сентября") dateMonth = '09';
+  if (dateMonth == "Oct"|"окт."|"октября") dateMonth = '10';
+  if (dateMonth == "Nov"|"ноя."|"ноября") dateMonth = '11';
+  if (dateMonth == "Dec"|"дек."|"декабря") dateMonth = '12';
 
   if (time) console.log(time[0]);
   if (AMPM) console.log(AMPM[0]);
