@@ -64,14 +64,15 @@ let formDate = document.querySelector('.formDate_input');
 let formTimezone = document.querySelector('.formTimezone_input ');
 
 function AutoPaste() {
-  let link = textareaLink.value.match(/(ftp:\/\/|www\.|https?:\/\/){1}[a-zA-Z0-9u00a1-\uffff0-]{2,}\.[a-zA-Z0-9u00a1-\uffff0-]{2,}(\S*)/);
-  let time = textareaLink.value.match(/((0?[1-9]|1[0-2]):[0-5][0-9](\s?-\s?|\s?−\s?|\s?–\s?|\s?—\s?)(0?[1-9]|1[0-2]):[0-5][0-9])|((0?[1-9]|1[0-2]):[0-5][0-9])/);
+  let link = textareaLink.value.match(/(ftp:\/\/|www\.|https?:\/\/){1}[a-zA-Z0-9u00a1-\uffff0-]{2,}\.[a-zA-Z0-9u00a1-\uffff0-]{2,}(\S*)/)[0];
+  let time = textareaLink.value.match(/((0?[1-9]|1[0-2]):[0-5][0-9](\s?-\s?|\s?−\s?|\s?–\s?|\s?—\s?)(0?[1-9]|1[0-2]):[0-5][0-9])|((0?[1-9]|1[0-2]):[0-5][0-9])/)[0];
   let AMPM = textareaLink.value.match(/AM|PM/);
-  let date = textareaLink.value.match(/([1-9]|[1-3][0-9])\s(\S*)/);
+  let date = textareaLink.value.match(/([1-9]|[1-3][0-9])\s(\S*)/)[0];
 
-  let dateDay = date[0].split(" ")[0];
+  let dateDay = date.split(" ")[0];
   if (parseInt(dateDay)<10) dateDay = "0"+dateDay;
-  let dateMonth = date[0].split(" ")[1];
+  let dateMonth = date.split(" ")[1];
+  let dateYear =  new Date().getFullYear();
 
   if (dateMonth.match(/[Яя]нв|[Jj]an/)) dateMonth = '01';
   if (dateMonth.match(/[Фф]ев|[Ff]eb/)) dateMonth = '02';
@@ -86,34 +87,48 @@ function AutoPaste() {
   if (dateMonth.match(/[Нн]оя|[Nn]ov/)) dateMonth = '11';
   if (dateMonth.match(/[Дд]ек|[Dd]ec/)) dateMonth = '12';
 
-  if (time) console.log(time[0]);
+  if (time) console.log(time);
   if (AMPM) console.log(AMPM[0]);
-  if (link) console.log(link[0]);
-  if (date) console.log(date[0]);
+  if (link) console.log(link);
+  if (date) console.log(date);
   if (dateDay) console.log("день: " + dateDay);
   if (dateMonth) console.log("месяц: " + dateMonth);
 
-  if (time[0].length > 5) {
-    let bigTime = time[0].split(/\s?-\s?|\s?−\s?|\s?–\s?|\s?—\s?/g);
+  function PMcheck(time) { 
+    if (AMPM) {
+      if (AMPM[0] == "PM") { 
+        let parts = time.split(":");
+        formTime_start.value = parseInt(parts[0])+12 +":"+ parts[1]
+      }
+    }
+  }
+
+  if (time.length > 5) {
+    let bigTime = time.split(/\s?-\s?|\s?−\s?|\s?–\s?|\s?—\s?/g);
     console.log(bigTime)
 
     if (bigTime[0].length == 4) {
       formTime_start.value = "0" + bigTime[0];
+      PMcheck(formTime_start.value)
     } else {
       formTime_start.value = bigTime[0];
+      PMcheck(formTime_start.value)
     }
 
     if (bigTime[1].length == 4) {
       formTime_end.value = "0" + bigTime[1];
+      PMcheck(formTime_end.value)
     } else {
       formTime_end.value = bigTime[1];
+      PMcheck(formTime_end.value)
     }
 
-  } else if (time[0].length = 5) {
-    formTime_start.value = time[0];
+  } else if (time.length = 5) {
+    formTime_start.value = time;
+    PMcheck(formTime_start.value)
   }
 
-  if (date) formDate.value = `2022-${dateMonth}-${dateDay}`
+  if (date) formDate.value = `${dateYear}-${dateMonth}-${dateDay}`
 }
 
 textareaLink.oninput = AutoPaste;
