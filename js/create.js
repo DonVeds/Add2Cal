@@ -94,16 +94,26 @@ function AutoPaste() {
   if (dateMonth) console.log("месяц: " + dateMonth);
 
   if (time[0].length > 5) {
-    formTime_start.value = time[0].split(/\s?-\s?|\s?−\s?|\s?–\s?|\s?—\s?/g)[0];
-    formTime_end.value = time[0].split(/\s?-\s?|\s?−\s?|\s?–\s?|\s?—\s?/g)[1];
-    console.log(formTime_end.value)
+    let bigTime = time[0].split(/\s?-\s?|\s?−\s?|\s?–\s?|\s?—\s?/g);
+    console.log(bigTime)
+
+    if (bigTime[0].length == 4) {
+      formTime_start.value = "0" + bigTime[0];
+    } else {
+      formTime_start.value = bigTime[0];
+    }
+
+    if (bigTime[1].length == 4) {
+      formTime_end.value = "0" + bigTime[1];
+    } else {
+      formTime_end.value = bigTime[1];
+    }
+
   } else if (time[0].length = 5) {
     formTime_start.value = time[0];
   }
 
   if (date) formDate.value = `2022-${dateMonth}-${dateDay}`
-
-
 }
 
 textareaLink.oninput = AutoPaste;
