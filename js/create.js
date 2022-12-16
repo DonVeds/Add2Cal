@@ -74,18 +74,18 @@ function AutoPaste() {
   let dateMonth = date.split(" ")[1];
   let dateYear =  new Date().getFullYear();
 
-  if (dateMonth.match(/[Яя]нв|[Jj]an/)) dateMonth = '01';
-  if (dateMonth.match(/[Фф]ев|[Ff]eb/)) dateMonth = '02';
-  if (dateMonth.match(/[Мм]ар|[Mm]ar/)) dateMonth = '03';
-  if (dateMonth.match(/[Аа]пр|[Aa]pr/)) dateMonth = '04';
-  if (dateMonth.match(/[Мм]ай|[Mm]ay/)) dateMonth = '05';
-  if (dateMonth.match(/[Ии]юн|[Jj]un/)) dateMonth = '06';
-  if (dateMonth.match(/[Ии]юл|[Jj]ul/)) dateMonth = '07';
-  if (dateMonth.match(/[Аа]вг|[Aa]ug/)) dateMonth = '08';
-  if (dateMonth.match(/[Сс]ен|[Ss]ep/)) dateMonth = '09';
-  if (dateMonth.match(/[Оо]кт|[Oo]ct/)) dateMonth = '10';
-  if (dateMonth.match(/[Нн]оя|[Nn]ov/)) dateMonth = '11';
-  if (dateMonth.match(/[Дд]ек|[Dd]ec/)) dateMonth = '12';
+  if (dateMonth.match(/янв|jan/i)) dateMonth = '01';
+  if (dateMonth.match(/фев|feb/i)) dateMonth = '02';
+  if (dateMonth.match(/мар|mar/i)) dateMonth = '03';
+  if (dateMonth.match(/апр|apr/i)) dateMonth = '04';
+  if (dateMonth.match(/май|may/i)) dateMonth = '05';
+  if (dateMonth.match(/июн|jun/i)) dateMonth = '06';
+  if (dateMonth.match(/июл|jul/i)) dateMonth = '07';
+  if (dateMonth.match(/авг|aug/i)) dateMonth = '08';
+  if (dateMonth.match(/сен|sep/i)) dateMonth = '09';
+  if (dateMonth.match(/окт|oct/i)) dateMonth = '10';
+  if (dateMonth.match(/ноя|nov/i)) dateMonth = '11';
+  if (dateMonth.match(/дек|dec/i)) dateMonth = '12';
 
   if (time) console.log(time);
   if (AMPM) console.log(AMPM[0]);
@@ -125,6 +125,7 @@ function AutoPaste() {
 
   } else if (time.length = 5) {
     formTime_start.value = time;
+    formTime_end.value = "";
     PMcheck(formTime_start.value)
   }
 
