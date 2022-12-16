@@ -78,10 +78,11 @@ function AutoPaste() {
   let engMonths = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
 
   for (i=0; i<12; i++) {
-    let checkMonths = new RegExp(rusMonths[i] + "*" + "|" + engMonths[1] + "*", "gi");
-    if (dateMonth.toString().match(checkMonths)) dateMonth = i;
+    let checkMonths = new RegExp(rusMonths[i] + "|" + engMonths[1], "gi");
+    if (dateMonth.toString().match(checkMonths)) dateMonth = i+1;
   }
 
+  if (parseInt(dateMonth) < 10) dateMonth = "0" + dateMonth;
   // Каждую итерацию мы создаем новую строку с значениями полученными благодаря лупу и проверяем получаемые данные из текст-филда благодаря этому regEx
 
   if (time) console.log(time);
