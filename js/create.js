@@ -52,6 +52,7 @@ window.onhashchange = updateActiveBox;
 for (const box in boxes) {
   boxes[box].onclick = function() {
     location.hash = boxes[box].classList[1].slice(3);
+    if (location.hash == "#Switch") location.href = "https://donveds.github.io/OldAdd2Cal"
     updateActiveBox();
   }
 }
@@ -73,6 +74,7 @@ function AutoPaste() {
   if (parseInt(dateDay)<10) dateDay = "0"+dateDay;
   let dateMonth = date.split(" ")[1];
   let dateYear =  new Date().getFullYear();
+  let timezone = '';
 
   let rusMonths = ['янв', 'фев', 'мар', 'апр', 'май', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'];
   let engMonths = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
@@ -84,6 +86,17 @@ function AutoPaste() {
 
   if (parseInt(dateMonth) < 10) dateMonth = "0" + dateMonth;
   // Каждую итерацию мы создаем новую строку с значениями полученными благодаря лупу и проверяем получаемые данные из текст-филда благодаря этому regEx
+
+  let timezones = [{ timezone: 'GMT 0', places: ['UTC', 'Greenwich Mean Time', 'London', 'Среднее время по Гринвичу', 'Лондон'] }, { timezone: 'GMT+1', places: ['Белград', 'Belgrade'] }, { timezone: 'GMT+2', places: ['Никосия', 'Киев', 'Nicosia', 'Kyiv'] }, { timezone: 'GMT+3', places: ['Москва', 'Стамбул', 'Минск', 'Moscow', 'Istanbul', 'Minsk'] }, { timezone: 'GMT+4', places: ['Дубай', 'Баку', 'Тбилиси', 'Ереван', 'Dubai', 'Baku', 'Tbilisi', 'Yerevan'] }, { timezone: 'GMT+5', places: ['Екатеринбург', 'Yekaterinburg'] }, { timezone: 'GMT+6', places: ['Алматы', 'Астана', 'Almaty', 'Astana'] }, { timezone: 'GMT+7', places: ['Новосибирск', 'Красноярск', 'Бангкок', 'Novosibirsk', 'Krasnoyarsk', 'Bangkok'] }, { timezone: 'GMT+8', places: ['Иркутск', 'Улан-Батор', 'Куала-Лумпур', 'Irkutsk', 'Ulaanbaatar', 'Kuala Lumpur'] }, { timezone: 'GMT+9', places: ['Якутск', 'Yakutsk'] }, { timezone: 'GMT+10', places: ['Владивосток', 'Vladivostok']} ]
+
+  for (i=0; i<timezones.length; i++) {
+    for (j=0; j<timezones[i].places.length; j++) {
+      let checkTimezone = new RegExp(timezones[i].places[j], "gi");
+      if (textareaLink.value.toString().match(checkTimezone)) formTimezone.value = timezones[i].timezone;
+    }
+  }
+
+  console.log(timezone)
 
   if (time) console.log(time);
   if (AMPM) console.log(AMPM[0]);
