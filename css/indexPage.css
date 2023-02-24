@@ -8,7 +8,13 @@ body {
 }
 
 .PagePadding {
-  padding: 20px 0 20px 20px;
+  padding: 10px 20px 20px 20px;
+}
+
+@media screen and (max-width: 700px) {
+  .PagePadding {
+    padding: 0px 10px 10px 10px;
+  }
 }
 
 header {
@@ -21,14 +27,33 @@ header {
   font-weight: 700;
   font-size: 3rem;
   margin-top: 0px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
-.subtitle {
+@media screen and (max-width: 700px) {
+  .title {
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 700;
+    font-size: 3rem;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+}
+
+/* .subtitle {
   font-weight: 600;
   margin-top: 5px;
   font-size: 1.5rem;
 }
+
+@media screen and (max-width: 700px) {
+  .subtitle {
+    font-weight: 600;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+  }
+} */
 
 .boxesScroll {
   display: flex;
@@ -43,8 +68,8 @@ header {
 }
 
 .box {
-  height: 350px;
-  width: 250px;
+  height: 270px;
+  width: 200px;
   flex-shrink: 0;
   margin-right: 20px;
   margin-top: 20px;
@@ -89,16 +114,24 @@ header {
 }
 
 .boxImg {
-  height: 190px;
-  width: 190px;
+  height: 160px;
+  width: 160px;
   filter: drop-shadow(0 0 10px #222);
-  margin: 30px;
+  margin: 20px;
 }
 
 .container {
-  max-width: calc(100vw - 20px);
+  /* max-width: calc(100vw - 20px); */
   display: none;
   margin-top: 40px;
+}
+
+@media screen and (max-width: 700px) {
+  .container {
+    /* max-width: calc(100vw - 20px); */
+    display: none;
+    margin-top: 20px;
+  }
 }
 
 .containerActive {

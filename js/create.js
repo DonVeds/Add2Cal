@@ -8,10 +8,10 @@ let lastActiveContainer = "";
 
 let scrollParams = {
   boxCreate: "0",
-  boxCall: "270",
-  boxInfo: "540",
-  boxSupport: "810",
-  boxSwitch: "1080"
+  boxCall: "220",
+  boxInfo: "440",
+  boxSupport: "660",
+  boxSwitch: "880"
 }
 
 function updateActiveBox() {
